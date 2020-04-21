@@ -4,6 +4,7 @@ import './App.css';
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
 import Navbar from "./components/Navbar";
+import Chart from "./components/Chart";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         </Col>
         <Col size ="md-10">
           <Navbar />
+          <Chart />
         </Col>
       </Row>
     </Container>
