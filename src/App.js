@@ -5,6 +5,7 @@ import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
 import Navbar from "./components/Navbar";
 import Chart from "./components/Chart";
+import SearchResultContainer from "./components/SearchResultContainer";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
         <Col size ="md-10">
           <Navbar />
           <Chart />
+          <SearchResultContainer />
         </Col>
       </Row>
     </Container>
