@@ -1,0 +1,19 @@
+.searchBtn {
+    color: gray;
+    position: absolute;
+    top: 18px;
+    left: 5px;
+    cursor: pointer;
+    padding-left: 10px;
+
+}
+
+.form-control {
+    padding-left: 30px;
+    margin: 10px;
+    border-top: none;
+    border-left: none;
+    border-right:none;
+
+    border-bottom: 0.5px solid gray;
+}
