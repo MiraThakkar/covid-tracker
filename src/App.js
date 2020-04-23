@@ -1,27 +1,36 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
+import Home from "./pages/Home";
+import Dashboard from "./pages/Dashboard";
 // import Sidebar from './components/Sidebar/index';
 import Navbar from "./components/Navbar";
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
-import Chart from "./components/Chart";
-import SearchResultContainer from "./components/SearchResultContainer";
+
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Container fluid>
-        <Row>
-          <Col size="md-2">
-            <SideMenu />
-          </Col>
-          <Col size ="md-10">
-            <SearchResultContainer />
-          </Col>
-        </Row>
-      </Container>
+
+      <Router>
+        <div>
+          <Container fluid>
+            <Row>
+              <Col size="md-2">
+                <SideMenu />
+              </Col>
+              <Col size ="md-10">
+                <Navbar />
+                <Route exact path="/" component={Dashboard} />
+                <Route exact path="/dashboard" component={Dashboard} />
+                <Route exact path="/home" component={Home} />
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </Router>
     </div>
   );
 }

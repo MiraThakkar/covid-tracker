@@ -1,3 +1,14 @@
-.narbar-brand {
-    background-color: transparent;
+h1 {
+    color: #ffffff;
+    justify-content: right;
+}
+
+.navbar-light {
+    height: 52px;
+}
+
+.btn-toggle {
+    position: absolute;
+    right: 10px;
+    top: 5px;
 }
