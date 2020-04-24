@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import SearchForm from "../SearchForm"
-import ResultList from "../ResultList";
-import API from "../../utils/API";
+import SearchForm from "../components/SearchForm";
+import ResultList from "../components/ResultList";
+import API from "../utils/API";
 
-class SearchResultContainer extends Component {
+class Dashboard extends Component {
   state = {
     search: "usa",
     results: []
@@ -51,4 +51,4 @@ class SearchResultContainer extends Component {
   }
 }
 
-export default SearchResultContainer;
+export default Dashboard;
