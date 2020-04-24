@@ -5,11 +5,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Login from "../Login";
 import SignUp from "../signup";
-
+import Earth from "../../assets/images/earth.png"
 
 function Navbar() {
     return (
-
+        
         <nav className="navbar navbar-expand-lg navbar-light bg-dark">
             <div className="container-fluid">
                 <a className= "navbar-brand" href= "#">Navbar</a>
