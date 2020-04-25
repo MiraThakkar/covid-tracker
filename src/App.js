@@ -9,9 +9,29 @@ import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
 
 
-
 function App() {
   return (
+
+    <Container fluid>
+      <Row>
+        <Col size="md-2">
+          <SideMenu />
+        </Col>
+        <Col size ="md-10">
+          <Navbar />
+        </Col>
+      </Row>
+
+      <Row>
+        <Col size= "md-3">
+          <Widget />
+        </Col>
+
+        <Col size= "md-3">
+          <Widget />
+        </Col>  
+      </Row>
+    </Container>
     <div className="App">
 
       <Router>
