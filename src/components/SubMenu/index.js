@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css"; 
+import Earth from "../../assets/images/earth.png";
 
 function Sidebar() {
 
@@ -10,9 +11,11 @@ function Sidebar() {
 
             <nav id="sidebar">
                 <div className="sidebar-header">
+                <img src={Earth} />
                     <h3>Vidapp</h3>
                     <button type="button" id="sidebarCollapse" className="btn btn-toggle">
                     <i className="fas fa-align-left"></i>
+                    
                 </button>
                 </div>
                 <button className = "btn btn-info mt-3"><i class="fas fa-chart-bar"></i>  Dashboard

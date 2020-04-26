@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import SearchForm from "../components/SearchForm";
 import ResultList from "../components/ResultList";
 import API from "../utils/API";
+import Widget from "../components/Widget";
+import { Container, Row, Col } from "../components/Grid";
 
 class Dashboard extends Component {
   state = {
@@ -39,14 +41,28 @@ class Dashboard extends Component {
   render() {
     return (
       <div>
-        
-          <SearchForm
-            search={this.state.search}
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
-          <ResultList results={this.state.results} />
+        <Container fluid>
+          <Row>
+            <Col size = "md-4">
+                <SearchForm
+                  search={this.state.search}
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+                <ResultList results={this.state.results} />
+            </Col>
+
+            <Col size = "md-4">
+              <Widget/>
+           </Col>
+
+           <Col size = "md-4">
+              <Widget/>
+           </Col>
+          </Row>
+        </Container>
       </div>
+
     );
   }
 }

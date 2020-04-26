@@ -1,8 +1,10 @@
 .widget{
-    text-align: justify;
+    text-align: center;
     height: auto;
     width: auto;
-    background-color: beige;
+    background-color: #426f6f;
     margin-top: clear;
     margin-bottom: clear;
+    color: rgb(16, 16, 133);
 }
+

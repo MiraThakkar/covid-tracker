@@ -5,6 +5,7 @@ h1 {
 
 .navbar-light {
     height: 52px;
+    background-color:  #426f6f;
 }
 
 .btn-toggle {
@@ -12,3 +13,4 @@ h1 {
     right: 10px;
     top: 5px;
 }
+
