@@ -1,4 +1,5 @@
 import React, {Component} from "react"
+import { Container } from "../Grid";
 export default class ToggleMenu extends Component{
   state={
     on:false
@@ -13,11 +14,13 @@ export default class ToggleMenu extends Component{
   render(){
     const { render }= this.props;
     return(
-      <div>
+      <div className= "container">
+        <Container>
         { render({
           on: this.state.on,
           toggle: this.toggle,
         }) }
+        </Container>
       </div>
     )
   }

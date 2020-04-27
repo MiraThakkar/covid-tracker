@@ -9,7 +9,7 @@ import SignUp from "../../pages/Signup";
 
 function Navbar() {
     return (
-      <div>
+      <div className= "navbar">
           
       </div>
   );

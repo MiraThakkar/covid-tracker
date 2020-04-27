@@ -9,6 +9,8 @@ import SideMenu from "./components/SubMenu";
 import Chart from "./components/Chart";
 import SearchResultContainer from "./components/SearchResultContainer";
 import ToggleMenu from "./components/ToggleMenu";
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
 
 
@@ -25,17 +27,19 @@ function App() {
               </Col>
               <Col size ="md-10">
                 <Navbar />
-                <ToggleMenu 
+                {/* <ToggleMenu 
                     render={({on, toggle})=>(
                       <div>
 
                         {on && <h2>Show Me</h2>}
                           <button onClick= {toggle}>Show/Hide</button>
                       </div>
-                  )} />
+                  )} /> */}
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
+                <Route exact path="/Login" component={Login} />
+                <Route exact path="/Signup" component={SignUp} />
               </Col>
             </Row>
           </Container>

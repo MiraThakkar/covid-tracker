@@ -51,7 +51,7 @@ class Dashboard extends Component {
                 />
                 <ResultList results={this.state.results} />
             </Col>
-
+      
             <Col size = "md-4">
               <Widget/>
            </Col>
