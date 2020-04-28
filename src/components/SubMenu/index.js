@@ -6,7 +6,7 @@ function Sidebar() {
 
     return(
 
-        <div className="wrapper">
+        <div className="sidebar-wrapper">
 
             <nav id="sidebar">
                 <div className="sidebar-header">
