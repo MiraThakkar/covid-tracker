@@ -33,9 +33,9 @@ export default function GlobalDataTable({ columns, data }) {
       <input
         value={filterInput}
         onChange={handleFilterChange}
-        placeholder={"Search name"}
+        placeholder={"Search country"}
       />
-      <table {...getTableProps()}>
+      <table className = "table table-striped" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

@@ -17,7 +17,10 @@ import SignUp from "./pages/Signup";
 function App() {
   return (
     <div className="App">
+<<<<<<< HEAD
       <Navbar />
+=======
+>>>>>>> 4fba3011abb7ae1624e5698197cc1650faeff302
       <Router>
         <div>
           <Container fluid>
@@ -46,6 +49,8 @@ function App() {
         </div>
       </Router>
     </div>
+    // </Container>
+    // </div>
   );
 }
 
