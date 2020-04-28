@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.28",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
+    "@fortawesome/react-fontawesome": "^0.1.9",
     "@material-ui/core": "^4.9.11",
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
@@ -11,7 +14,12 @@
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
     "react": "^16.13.1",
+<<<<<<< HEAD
+    "react-bootstrap": "^1.0.0",
+    "react-chartjs": "^1.2.0",
+=======
     "react-bootstrap": "^1.0.1",
+>>>>>>> 4fba3011abb7ae1624e5698197cc1650faeff302
     "react-chartjs-2": "^2.9.0",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",

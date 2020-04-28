@@ -1,6 +1,15 @@
+<<<<<<< HEAD
+import React, { Component } from "react";
+import SearchForm from "../components/SearchForm";
+import ResultList from "../components/ResultList";
+import API from "../utils/API";
+import Widget from "../components/Widget";
+import { Container, Row, Col } from "../components/Grid";
+=======
 import React, { Component } from 'react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import { ProgressBar} from 'react-bootstrap';
+>>>>>>> 4fba3011abb7ae1624e5698197cc1650faeff302
 
 class Dashboard extends Component {
   state = {
@@ -164,6 +173,32 @@ amountDueBarOptions = {
 
   render () {
     return (
+<<<<<<< HEAD
+      <div>
+        <Container fluid>
+          <Row>
+            <Col size = "md-4">
+                <SearchForm
+                  search={this.state.search}
+                  handleFormSubmit={this.handleFormSubmit}
+                  handleInputChange={this.handleInputChange}
+                />
+                <ResultList results={this.state.results} />
+            </Col>
+      
+            <Col size = "md-4">
+              <Widget/>
+           </Col>
+
+           <Col size = "md-4">
+              <Widget/>
+           </Col>
+          </Row>
+        </Container>
+      </div>
+
+    );
+=======
         <div className= "container" style= {{padding: "20px 20px"}}>
 
           <div className="row">
@@ -324,6 +359,7 @@ amountDueBarOptions = {
       
     )
     
+>>>>>>> 4fba3011abb7ae1624e5698197cc1650faeff302
   }
 }
 
