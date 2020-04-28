@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css"; 
-import Earth from "../../assets/images/earth.png";
+import CoronaVirus from "../../assets/images/Coronavirus.png";
 import ToggleMenu from "../ToggleMenu"
 
 function Sidebar() {
@@ -12,7 +12,7 @@ function Sidebar() {
 
             <nav id="sidebar">
                 <div className="sidebar-header">
-                <img src={Earth} />
+                <img className= "image" src={CoronaVirus} />
                     <h3>ViDAPP</h3>
                     {/* <button  type="button" id="sidebarCollapse" className="btn btn-toggle">
                     <i className="fas fa-align-left"></i> */}
@@ -21,7 +21,8 @@ function Sidebar() {
                     render={({on, toggle})=>(
                       <div>
 
-                        {on && <Link to ='/Login' >Sign In </Link>}
+                        {on && <Link to ='/Login' >Sign In / </Link>}
+                        
                         {on && <Link to ='/Signup' > Sign Up </Link>}
                           {/* <button onClick= {toggle}></button> */}
 
