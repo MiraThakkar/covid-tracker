@@ -3,11 +3,8 @@ import API from "../utils/API"
 import Table from "../components/GlobalDataTable";
 
 
+
 function Home() {
-
-
-
-
 
   const columns = useMemo(
     () => [
@@ -32,6 +29,13 @@ function Home() {
           {
             Header: "Active",
             accessor: "cases.active"
+          }, {
+            Header: "New Deaths",
+            accessor: "deaths.new"
+          },
+          {
+            Header: "Total Deaths",
+            accessor: "deaths.total"
           }
         
         ]
@@ -43,16 +47,17 @@ function Home() {
 
   useEffect(() => { 
     API.stats().then(res => {
-
       setdata(res.data.response)
     })
     }, []);
 
   return (
 
-      <div>
-      <Table columns= {columns} data= {data}/>
-      </div>
+      
+      <Table
+       columns= {columns} data= {data}>
+      </Table>
+      
     
     );
 }

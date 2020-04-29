@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(239, 239, 247);
+  font-family: 'Muli', sans-serif;
+}
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -36,3 +40,26 @@
     transform: rotate(360deg);
   }
 }
+
+
+/* Card Style */
+
+.card-body h3 {
+    width: auto;
+    padding: 0;
+  }
+
+.card-title {
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 14px;
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: gray;
+  margin-top: 20px;
+}
+
