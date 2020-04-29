@@ -7,6 +7,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
+import Usa from "./components/SearchForm/Usa";
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
+                <Route exact path="/usaForm" component={Usa} />
               </Col>
             </Row>
           </Container>

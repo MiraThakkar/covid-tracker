@@ -28,9 +28,9 @@ function Sidebar() {
                     </li>
                     <li className="nav-item">
                         <Link
-                            to="/"
+                            to="/dashboard"
                             className={
-                            window.location.pathname === "/" || window.location.pathname === "/dashboard"
+                            window.location.pathname === "/dashboard" || window.location.pathname === "/dashboard"
                             ? "nav-link active"
                             : "nav-link"
                             }
@@ -39,6 +39,20 @@ function Sidebar() {
                         </Link>
                     </li>
                     
+                    <li className="nav-item">
+                        <Link
+                            to="/usaForm"
+                            className={
+                            window.location.pathname === "/usaForm" || window.location.pathname === "/usaForm"
+                            ? "nav-link active"
+                            : "nav-link"
+                            }
+                        >
+                        USA
+                        </Link>
+                    </li>
+                    
+
                 </ul>
                 
             </nav>
