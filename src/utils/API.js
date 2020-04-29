@@ -3,7 +3,7 @@ export default {
   search: function (query) {
     return axios({
         "method":"GET",
-        "url":"https://covid-193.p.rapidapi.com/history",
+        "url":"https://covid-193.p.rapidapi.com/statistics",
         //"url":"https://covid-193.p.rapidapi.com/countries",
         // "url":"https://covid-193.p.rapidapi.com/countries",
         "headers":{
@@ -11,7 +11,7 @@ export default {
         "x-rapidapi-host":"covid-193.p.rapidapi.com",
         "x-rapidapi-key":"65540442ebmsh5825c6f7e1a9604p139457jsn2008a79824c1"
         },
-        "params":{ "day":"2020-04-20",
+        "params":{
         "country":query}
         })
         .then((response)=>{

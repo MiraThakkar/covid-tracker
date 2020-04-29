@@ -16,9 +16,9 @@ class SearchResultContainer extends Component {
 
   searchByCountry = query => {
     API.search(query)
-      .then(res => this.setState({ results: res.data.response }))//??
-      // .then(res => this.setState({ results: res.response }))
-      //.then(res => console.log(res.data.response[0].cases))
+      // .then(res => this.setState({ results: res.data.response }))//??
+      // // .then(res => this.setState({ results: res.response }))
+      .then(res => console.log(res.data.response[0].cases))
       .catch(err => console.log(err));
   };
 
