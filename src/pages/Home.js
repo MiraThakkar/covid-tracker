@@ -6,10 +6,6 @@ import Table from "../components/GlobalDataTable";
 
 function Home() {
 
-
-
-
-
   const columns = useMemo(
     () => [
       {
