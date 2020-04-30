@@ -11,6 +11,12 @@ import SideMenu from "./components/SubMenu";
 // import ToggleMenu from "./components/ToggleMenu";
 // import Login from "./pages/Login";
 // import SignUp from "./pages/Signup";
+import usaForm from "./components/SearchForm/Usa";
+import Chart from "./components/Chart";
+import SearchResultContainer from "./components/SearchResultContainer";
+import ToggleMenu from "./components/ToggleMenu";
+import Login from "./pages/Login";
+import SignUp from "./pages/Signup";
 
 
 
@@ -39,6 +45,9 @@ function App() {
                 <Route exact path="/home" component={Home} />
                 {/* <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={SignUp} /> */}
+                <Route exact path="/usaForm" component={usaForm} />
+                <Route exact path="/Login" component={Login} />
+                <Route exact path="/Signup" component={SignUp} />
               </Col>
             </Row>
           </Container>
