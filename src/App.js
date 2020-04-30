@@ -6,11 +6,11 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
-import Chart from "./components/Chart";
-import SearchResultContainer from "./components/SearchResultContainer";
-import ToggleMenu from "./components/ToggleMenu";
-import Login from "./pages/Login";
-import SignUp from "./pages/Signup";
+// import Chart from "./components/Chart";
+// import SearchResultContainer from "./components/SearchResultContainer";
+// import ToggleMenu from "./components/ToggleMenu";
+// import Login from "./pages/Login";
+// import SignUp from "./pages/Signup";
 
 
 
@@ -37,8 +37,8 @@ function App() {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
-                <Route exact path="/Login" component={Login} />
-                <Route exact path="/Signup" component={SignUp} />
+                {/* <Route exact path="/Login" component={Login} />
+                <Route exact path="/Signup" component={SignUp} /> */}
               </Col>
             </Row>
           </Container>
