@@ -3,17 +3,10 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
-// import Chart from "./components/Chart";
-// import SearchResultContainer from "./components/SearchResultContainer";
-// import ToggleMenu from "./components/ToggleMenu";
-// import Login from "./pages/Login";
-// import SignUp from "./pages/Signup";
 import usaForm from "./pages/Usa";
-// import SearchResultContainer from "./components/SearchResultContainer";
-// import ToggleMenu from "./components/ToggleMenu";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 
@@ -30,7 +23,7 @@ function App() {
                 <SideMenu />
               </Col>
               <Col size ="md-10">
-                <Navbar />
+                {/* <Navbar /> */}
                 {/* <ToggleMenu 
                     render={({on, toggle})=>(
                       <div>
