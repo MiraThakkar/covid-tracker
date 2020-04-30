@@ -11,10 +11,9 @@ import SideMenu from "./components/SubMenu";
 // import ToggleMenu from "./components/ToggleMenu";
 // import Login from "./pages/Login";
 // import SignUp from "./pages/Signup";
-import usaForm from "./components/SearchForm/Usa";
-import Chart from "./components/Chart";
-import SearchResultContainer from "./components/SearchResultContainer";
-import ToggleMenu from "./components/ToggleMenu";
+import usaForm from "./pages/Usa";
+// import SearchResultContainer from "./components/SearchResultContainer";
+// import ToggleMenu from "./components/ToggleMenu";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 

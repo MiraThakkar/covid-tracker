@@ -1,14 +1,10 @@
 import React, { Component } from "react";
-<<<<<<< HEAD
-=======
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 //import React, { Component } from 'react';
->>>>>>> e55ea245a85880ee3d794f66375a822d67c9cb73
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import { ProgressBar} from 'react-bootstrap';
-import SearchForm from "../components/SearchForm";
-import API from "../utils/API";
+
 
 
 class Dashboard extends Component {
