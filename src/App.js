@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Navbar from "./components/Navbar";
 import { Col, Row, Container } from "./components/Grid";
 import SideMenu from "./components/SubMenu";
-import Usa from "./components/SearchForm/Usa";
+import usaForm from "./components/SearchForm/Usa";
 import Chart from "./components/Chart";
 import SearchResultContainer from "./components/SearchResultContainer";
 import ToggleMenu from "./components/ToggleMenu";
@@ -38,7 +38,7 @@ function App() {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
-                <Route exact path="/usaForm" component={Usa} />
+                <Route exact path="/usaForm" component={usaForm} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={SignUp} />
               </Col>

@@ -1,8 +1,8 @@
 
 import React, { Component } from "react";
-import SearchForm from "../components/SearchForm";;
+import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
-import React, { Component } from 'react';
+//import React, { Component } from 'react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import { ProgressBar} from 'react-bootstrap';
 
