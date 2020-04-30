@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { useTable, useFilters, useSortBy } from "react-table";
+import SearchForm from "../SearchForm";
 
 export default function GlobalDataTable({ columns, data }) {
     console.log(data);
@@ -30,11 +31,15 @@ export default function GlobalDataTable({ columns, data }) {
   // Render the UI for your table
   return (
     <>
+    
+
       <input
+        className = "form-control mb-3" 
         value={filterInput}
         onChange={handleFilterChange}
         placeholder={"Search country"}
       />
+      
       <table className = "table table-striped" {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (

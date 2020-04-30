@@ -53,12 +53,14 @@ function Home() {
 
   return (
 
+    <div className= "container" style= {{padding: "20px 20px"}}>
       
       <Table
        columns= {columns} data= {data}>
       </Table>
+    </div>
       
-    
+  
     );
 }
 
