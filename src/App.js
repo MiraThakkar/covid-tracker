@@ -17,7 +17,7 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Container fluid style= {{padding: "20px 20px"}}>
+          <Container fluid>
             <Row>
               <Col size="md-2">
                 <SideMenu />

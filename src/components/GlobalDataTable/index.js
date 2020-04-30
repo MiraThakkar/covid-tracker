@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useTable, useFilters, useSortBy } from "react-table";
-import SearchForm from "../SearchForm";
+// import SearchForm from "../SearchForm";
 
 export default function GlobalDataTable({ columns, data }) {
     console.log(data);
