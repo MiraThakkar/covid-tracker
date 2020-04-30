@@ -63,7 +63,7 @@ return axios({
 
     //console.log(response)
     //console.log(cities)
-    return response.data;
+    return response.data.data[0];
 
   })
 
