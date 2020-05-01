@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import { ProgressBar} from 'react-bootstrap';
+import Navbar from "../components/Navbar";
+import SubMenu from "../components/SubMenu";
+import { Col, Row, Container } from "../components/Grid";
 
 class Dashboard extends Component {
   state = {
@@ -12,7 +15,7 @@ class Dashboard extends Component {
     datasets: [{
         label: 'Product-1',
         data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
-        backgroundColor: '#2196f3',
+        backgroundColor: '#8aaec9',
         borderColor: '#0c83e2',
         borderWidth: 1,
         fill: true,
@@ -164,7 +167,17 @@ amountDueBarOptions = {
 
   render () {
     return (
-        <div className= "container" style= {{padding: "20px 20px"}}>
+      <div>
+        <Container fluid>
+            <Row>
+              <Col size="md-2">
+                <SubMenu />
+              </Col>
+              <Col size ="md-10">
+                <Navbar />
+              
+      {/* changed background color to light blue */}
+        <div className= "container" style= {{padding: "20px 20px", backgroundColor: "#9bbad1"}}> 
 
           <div className="row">
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
@@ -321,7 +334,12 @@ amountDueBarOptions = {
           </div>
         </div>
       </div>
-      
+
+      </Col>
+      </Row>
+      </Container>
+      </div>
+     
     )
     
   }

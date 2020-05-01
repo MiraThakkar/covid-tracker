@@ -21,7 +21,7 @@ function Sidebar() {
                     render={({on, toggle})=>(
                       <div>
 
-                        {on && <Link to ='/Login' >Sign In / </Link>}
+                        {on && <Link to ='/Login' >Sign In <span className= "p-2"> | </span></Link>}
                         
                         {on && <Link to ='/Signup' > Sign Up </Link>}
                           {/* <button onClick= {toggle}></button> */}

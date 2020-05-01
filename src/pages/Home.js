@@ -1,7 +1,9 @@
 import React, { useMemo, useState, useEffect } from "react";
 import API from "../utils/API"
 import Table from "../components/GlobalDataTable";
-
+import Navbar from "../components/Navbar";
+import SubMenu from "../components/SubMenu";
+import { Col, Row, Container } from "../components/Grid";
 
 
 function Home() {
@@ -56,13 +58,24 @@ function Home() {
     }, []);
 
   return (
-
+    <div>
+      <Container fluid>
+            <Row>
+              <Col size="md-2">
+                <SubMenu />
+              </Col>
+              <Col size ="md-10">
+                <Navbar />
+              
+      
       
       <Table
        columns= {columns} data= {data}>
       </Table>
-      
-    
+      </Col>
+      </Row>
+      </Container>
+      </div>
     );
 }
 
