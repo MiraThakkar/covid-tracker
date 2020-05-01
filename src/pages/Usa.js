@@ -114,9 +114,7 @@ class Map extends Component {
   render() {
     return (
       <div className= "container" style= {{padding: "20px 20px"}}>
-  
-         
-
+ -
         <div className = "map">
           <input
             onChange={this.handleInputChange}
@@ -129,7 +127,6 @@ class Map extends Component {
           />
           <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
         </div>
-        
       </div>
     );
   }
