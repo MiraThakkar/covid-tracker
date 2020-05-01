@@ -3,26 +3,82 @@ import React, { Component } from 'react';
 import USAMap from "react-usa-map";
 import API from "../utils/API";
  
+const states = {'Alabama':'AL',
+'Alaska':'AK',
+'Arizona':'AZ',
+'Arkansas':'AR',
+'California':'CA',
+'Colorado':'CO',
+'Connecticut':'CT',
+'Delaware':'DE',
+'Florida':'FL',
+'Georgia':'GA',
+'Hawaii':'HI',
+'Idaho':'ID',
+'Illinois':'IL',
+'Indiana':'IN',
+'Iowa':'IA',
+'Kansas':'KS',
+'Kentucky':'KY',
+'Louisiana':'LA',
+'Maine':'ME',
+'Maryland':'MD',
+'Massachusetts':'MA',
+'Michigan':'MI',
+'Minnesota':'MN',
+'Mississippi':'MS',
+'Missouri':'MO',
+'Montana':'MT',
+'Nebraska':'NE',
+'Nevada':'NV',
+'New Hampshire':'NH',
+'New Jersey':'NJ',
+'New Mexico':'NM',
+'New York':'NY',
+'North Carolina':'NC',
+'North Dakota':'ND',
+'Ohio':'OH',
+'Oklahoma':'OK',
+'Oregon':'OR',
+'Pennsylvania':'PA',
+'Rhode Island':'RI',
+'South Carolina':'SC',
+'South Dakota':'SD',
+'Tennessee':'TN',
+'Texas':'TX',
+'Utah':'UT',
+'Vermont':'VT',
+'Virginia':'VA',
+'Washington':'WA',
+'West Virginia':'WV',
+'Wisconsin':'WI',
+'Wyoming':'WY'
+};
 class Map extends Component {
 
   state = {
         stateName: "",
         date: "",
-        results: []
-  };
+        results: [],
+
+      };
+  
+  getKeyByValue = (object, value)  => { 
+    return Object.keys(object).find(key => object[key] === value);
+    
+   }
   // componentDidMount() {
   //   this.searchByCountry(this.search);
   // }
-
   searchByState = (query, searchDate) => {
     //console.log(query)
     console.log(query);
     console.log(searchDate);
     API.searchState(query, searchDate)
-      // .then(res => this.setState({ results: res.data.response }))//??
-      // // .then(res => this.setState({ results: res.response }))
-      .then(res => console.log(res))
-      //.catch(err => console.log(err));
+    // .then(res => this.setState({ results: res.data.response }))//??
+    // // .then(res => this.setState({ results: res.response }))
+    .then(res => console.log(res))
+    //.catch(err => console.log(err));
   };
 
     handleInputChange = event => {
@@ -33,16 +89,13 @@ class Map extends Component {
       });
     };
     
-      // When the form is submitted, search the Civid API for `this.state.search`
-      handleFormSubmit = event => {
-        event.preventDefault();
-        console.log(this.state.stateName);
-        console.log(this.state.date);
-        this.searchByState(this.state.stateName, this.state.date);
-      };
   /* mandatory */
-    mapHandler = (event) => {
-      alert(event.target.dataset.name);
+    mapHandler = async (event) => {
+      const value = this.getKeyByValue (states, event.target.dataset.name );
+      await this.setState({stateName: value});
+      alert(this.state.stateName);
+      this.searchByState(this.state.stateName, this.state.date);
+      
     };
  
   /* optional customization of filling per state and calling custom callbacks per state */
@@ -50,9 +103,9 @@ class Map extends Component {
       return {
         "CT": {
           fill: "navy",
-          clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
+          clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
         },
-        "CT": {
+        "NY": {
           fill: "#CC0000"
         }
       };
@@ -61,16 +114,10 @@ class Map extends Component {
   render() {
     return (
       <div className= "container" style= {{padding: "20px 20px"}}>
-        <form>
-         <input
-            onChange={this.handleInputChange}
-            value={this.state.stateName}
-            name="stateName"
-            type="text"
-            className="form-control"
-            placeholder="Search for a state in USA"
-            id="state"
-          />
+  
+         
+
+        <div className = "map">
           <input
             onChange={this.handleInputChange}
             value={this.state.date}
@@ -80,13 +127,6 @@ class Map extends Component {
             placeholder="date"
             id="date"
           />
-          <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
-            Search
-          </button>
-        
-        </form>
-
-        <div className = "map">
           <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
         </div>
         
