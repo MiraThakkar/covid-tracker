@@ -1,0 +1,19 @@
+h1 {
+    color: #ffffff;
+    justify-content: right;
+}
+
+.navbar-light {
+    
+    background-color: #ffffff;
+
+}
+
+
+.btn-toggle {
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+

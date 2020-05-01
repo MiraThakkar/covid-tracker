@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-color: rgb(249, 252, 253);
+  
+} 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -20,7 +24,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  /* font-size: calc(10px + 2vmin); */
   color: white;
 }
 
@@ -35,4 +39,35 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+
+/* Card Style */
+
+.card-body h3 {
+    width: auto;
+    padding: 0;
+  }
+
+.card-title {
+  font-weight: 500;
+  margin-bottom: 15px;
+  text-transform: capitalize;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  font-size: 12px;
+}
+
+.card {
+  border-radius: 0.5rem;
+  box-shadow: gray;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+path {
+  pointer-events: all;
+}
+path:hover {
+  opacity: 0.50;
+  cursor: pointer;
 }
