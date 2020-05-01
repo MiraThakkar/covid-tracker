@@ -1,6 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
-import dropDown from  "../../utils/Droplist";
+//import dropDown from  "../../utils/Droplist";
+
 class usaForm extends React.Component {
   state = {
     stateName: "",
