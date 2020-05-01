@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./style.css"; 
+import ToggleMenu from "../ToggleMenu";
 import CoronaVirus from "../../assets/images/Coronavirus.png";
-import ToggleMenu from "../ToggleMenu"
+
 
 function Sidebar() {
 
@@ -12,25 +13,32 @@ function Sidebar() {
 
             <nav id="sidebar">
                 <div className="sidebar-header">
-                <img className= "image" src={CoronaVirus} />
-                    <h3>ViDAPP</h3>
-                    {/* <button  type="button" id="sidebarCollapse" className="btn btn-toggle">
-                    <i className="fas fa-align-left"></i> */}
-                    
+
+                <a className="navbar-brand" href="#">
+                    <img className= "image" src={CoronaVirus} />
+                    ViD-APP</a>
+
+                
                     <ToggleMenu 
-                    render={({on, toggle})=>(
-                      <div>
+                   render={({on, toggle})=>(
+                     <div>
 
                         {on && <Link to ='/Login' >Sign In <span className= "p-2"> | </span></Link>}
                         
                         {on && <Link to ='/Signup' > Sign Up </Link>}
-                          {/* <button onClick= {toggle}></button> */}
+                     
+                          {/* Mira's changes <button onClick= {toggle}></button> */}
+                       {/* {on && <Link to ='/Login' >Sign In / </Link>}
+                       
+                       {on && <Link to ='/Signup' > Sign Up </Link>} */}
+                         {/* <button onClick= {toggle}></button> */}
 
-                          <button  onClick= {toggle}
-                          type="button" id="sidebarCollapse" className="btn btn-toggle">
-                    <i className="fas fa-align-left"></i></button>
-                      </div>
-                  )} />
+                         <button  onClick= {toggle}
+                         type="button" id="sidebarCollapse" className="btn btn-toggle">
+                   <i className="fas fa-align-left"></i></button>
+                     </div>
+                 )} />
+               
 
                 {/* </button> */}
                 </div>
@@ -42,22 +50,36 @@ function Sidebar() {
                         <Link
                             to="/home" className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
                         >
-                        Home
+                        <i class="fas fa-home"></i> Home
                         </Link>
                     </li>
                     <li className="nav-item">
                         <Link
-                            to="/"
+                            to="/dashboard"
                             className={
-                            window.location.pathname === "/" || window.location.pathname === "/dashboard"
+                            window.location.pathname === "/dashboard" || window.location.pathname === "/dashboard"
                             ? "nav-link active"
                             : "nav-link"
                             }
                         >
-                        Dashboard
+                       <i class="fas fa-chart-bar"></i> Dashboard
                         </Link>
                     </li>
                     
+                    <li className="nav-item">
+                        <Link
+                            to="/usaForm"
+                            className={
+                            window.location.pathname === "/usaForm" || window.location.pathname === "/usaForm"
+                            ? "nav-link active"
+                            : "nav-link"
+                            }
+                        >
+                        <i class="fas fa-map"></i> Map
+                        </Link>
+                    </li>
+                    
+
                 </ul>
                 
             </nav>

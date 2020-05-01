@@ -1,14 +1,67 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import SearchForm from "../components/SearchForm";
+import API from "../utils/API";
+//import React, { Component } from 'react';
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import { ProgressBar} from 'react-bootstrap';
 import Navbar from "../components/Navbar";
 import SubMenu from "../components/SubMenu";
 import { Col, Row, Container } from "../components/Grid";
 
+
+
 class Dashboard extends Component {
+
   state = {
+    search: "usa",
+    results: [],
+    activeCases: 0,
+    totalCases: 0,
+    newCases: 0,
+    totalDeath: 0,
+    recovered: 0
 
   }
+
+  componentDidMount() {
+    this.searchByCountry(this.search);
+  }
+
+  searchByCountry = query => {
+    API.search(query)
+      .then(res => {
+
+         this.setState({ results: res.data.response[0],
+          activeCases: res.data.response[0].cases.active,
+          totalCases: res.data.response[0].cases.total,
+          newCases: res.data.response[0].cases.new,
+          totalDeath: res.data.response[0].deaths.total,
+          recovered: res.data.response[0].cases.recovered,
+
+        });
+         console.log(this.state.results);
+       
+        // console.log(activeCase);
+       
+      })
+         //??
+      // // // .then(res => this.setState({ results: res.response }))
+      // .then(res => console.log(res.data.response[0].cases))
+      .catch(err => console.log(err));
+  };
+
+  handleInputChange = event => {
+    const name = event.target.name;
+    const value = event.target.value;
+    this.setState({
+      [name]: value
+    });
+  };
+
+  handleFormSubmit = event => {
+    event.preventDefault();
+    this.searchByCountry(this.state.search);
+  };
 
   areaData = {
     labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
@@ -179,6 +232,12 @@ amountDueBarOptions = {
       {/* changed background color to light blue */}
         <div className= "container" style= {{padding: "20px 20px", backgroundColor: "#9bbad1"}}> 
 
+          <SearchForm
+            search={this.state.search}
+            handleFormSubmit={this.handleFormSubmit}
+            handleInputChange={this.handleInputChange}
+          />
+
           <div className="row">
             <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
               <div className="card card-statistics">
@@ -190,7 +249,7 @@ amountDueBarOptions = {
                     <div className="float-right">
                       <p className="mb-0 text-right text-dark">Total Cases</p>
                       <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark">65,650</h3>
+                        <h3 className="font-weight-medium text-right mb-0 text-dark">{this.state.totalCases}</h3>
                       </div>
                     </div>
                   </div>
@@ -209,7 +268,7 @@ amountDueBarOptions = {
                     <div className="float-right">
                       <p className="mb-0 text-right text-dark">New Cases</p>
                       <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark">3455</h3>
+                        <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.newCases} </h3>
                       </div>
                     </div>
                   </div>
@@ -227,7 +286,7 @@ amountDueBarOptions = {
                     <div className="float-right">
                       <p className="mb-0 text-right text-dark">Recovered</p>
                       <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark">5693</h3>
+    <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.recovered} </h3>
                       </div>
                     </div>
                   </div>
@@ -246,7 +305,7 @@ amountDueBarOptions = {
                     <div className="float-right">
                       <p className="mb-0 text-right text-dark">Total Death</p>
                       <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark">246</h3>
+                        <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.totalDeath}</h3>
                       </div>
                     </div>
                   </div>
@@ -293,7 +352,7 @@ amountDueBarOptions = {
                     <div className="wrapper mt-4">
                       <div className="d-flex justify-content-between mb-2">
                         <div className="d-flex align-items-center">
-                          <p className="mb-0 font-weight-medium">67,550</p>
+                          <p className="mb-0 font-weight-medium"> {this.state.activeCases} </p>
                           <small className="text-muted ml-2">Total Tests</small>
                         </div>
                         <p className="mb-0 font-weight-medium">80%</p>

@@ -8,10 +8,6 @@ import { Col, Row, Container } from "../components/Grid";
 
 function Home() {
 
-
-
-
-
   const columns = useMemo(
     () => [
       {
