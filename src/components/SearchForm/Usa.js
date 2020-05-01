@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 // import './App.css'; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
-import API from "../utils/API";
+import API from "../../utils/API";
  
-class Map extends Component {
+class usaForm extends Component {
 
   state = {
         stateName: "",
@@ -95,7 +95,7 @@ class Map extends Component {
   }
 }
  
-export default Map;
+export default usaForm;
 
 
 
