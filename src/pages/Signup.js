@@ -1,11 +1,28 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+
 
 export default class SignUp extends Component {
     render() {
+        const mystyle = {
+            color: "white",
+            backgroundColor: "DodgerBlue",
+            padding: "15px",
+            fontFamily: "Arial",
+            height: "auto",
+            width: "auto",
+            marginLeft: "30%",
+            marginRight: "30%",
+            background: "#2196f3",
+            marginTop: "10%"
+
+          };
+    
+        
         return (
             <div className= "signup">
-                <form>
-                <h3>Sign Up</h3>
+                <form style= {mystyle}>
+                <h4>Sign Up</h4>
 
                 <div className="form-group">
                     <label>First name</label>
@@ -29,7 +46,7 @@ export default class SignUp extends Component {
 
                 <button type="submit" className="btn btn-primary btn-block">Sign Up</button>
                 <p className="forgot-password text-right">
-                    Already registered <a href="/Login">sign in?</a>
+                     <Link to="/Login"> Already registered?</Link>
                 </p>
             </form>
             </div>

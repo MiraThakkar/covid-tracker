@@ -1,0 +1,13 @@
+.form-control {
+    padding-left: 30px;
+   margin-bottom: 10px; 
+   border-top: none;
+   border-left: none;
+   border-right:none;
+   max-width: 100%;
+   border-bottom: 0.5px solid gray;
+}
+
+.table {
+    margin-top: 20px !important
+}
