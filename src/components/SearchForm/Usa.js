@@ -1,11 +1,13 @@
 import React from "react";
 import API from "../../utils/API";
-import dropDown from "../../utils/Droplist/";
+import dropDown from  "../../utils/Droplist";
 class usaForm extends React.Component {
   state = {
     stateName: "",
     date: "",
     results: [],
+    drop: "",
+
     list: [
       "Alabama","Alaska","American Samoa","Arizona","Arkansas","California",
       "Colorado","Connecticut","Delaware","District Of Columbia","Federated States Of Micronesia",
@@ -63,6 +65,18 @@ class usaForm extends React.Component {
             placeholder="Search for a state in USA"
             id="state"
           />
+          {/* <select className="custom-select"
+          // name = "drop"
+          // value = {this.state.drop} 
+                                            
+          >
+            <option selected>Select a State</option>
+            <option name = "drop" value={this.state.drop} onSelect = {this.handleInputChange}>New Jersey</option>
+            <option name = "drop" value={this.state.drop} onSelect = {this.handleInputChange}>New York</option>
+            <option name = "drop" value={this.state.drop} onSelect = {this.handleInputChange}>Connecticut</option>
+          </select> */}
+
+          {/* <dropDown /> */}
           <input
             onChange={this.handleInputChange}
             value={this.state.date}
@@ -72,7 +86,7 @@ class usaForm extends React.Component {
             placeholder="date"
             id="date"
           />
-          <dropDown />
+          {/* <dropDown /> */}
           <button onClick={this.handleFormSubmit} className="btn btn-primary mt-3">
             Search
           </button>
