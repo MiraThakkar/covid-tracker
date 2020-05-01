@@ -24,11 +24,6 @@ export default {
   },
 /////////////////////////////////  
 searchState: function (query, date) {
-  // var day = 21;
-  // var month = "04";
-  // var year = 2020
-  // var date = year + "-" + month + "-" + day;
-  //date = date.toISOString();
 return axios({
 
   "method":"GET",
@@ -63,7 +58,7 @@ return axios({
 
     //console.log(response)
     //console.log(cities)
-    return response.data;
+    return response.data.data[0];
 
   })
 
