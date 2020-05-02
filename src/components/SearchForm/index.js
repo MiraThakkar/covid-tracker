@@ -6,9 +6,9 @@ function SearchForm(props) {
   return (
     <form>
       <div className="form-group"> 
-        {/* <span onClick={props.handleFormSubmit} className="searchBtn">
+        <span onClick={props.handleFormSubmit} className="searchBtn">
           <i class="fa fa-search" />
-        </span> */}
+        </span>
         <input
           onChange={props.handleInputChange}
           value={props.search}

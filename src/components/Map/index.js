@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './App.css'; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
  
-class Map extends Component {
+class App extends Component {
   /* mandatory */
   mapHandler = (event) => {
     alert(event.target.dataset.name);
@@ -30,4 +30,4 @@ class Map extends Component {
   }
 }
  
-export default Map;
+export default App;
