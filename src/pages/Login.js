@@ -12,7 +12,8 @@ function Login ()  {
         marginLeft: "30%",
         marginRight: "30%",
         background: "#2196f3",
-        marginTop: "10%"
+        marginTop: "5%",
+        marginBottom: "5%"
       };
 
     
