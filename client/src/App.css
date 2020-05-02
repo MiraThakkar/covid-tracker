@@ -47,21 +47,28 @@ body {
 .card-body h3 {
     width: auto;
     padding: 0;
+    background-color: transparent;
+    border: none;
   }
 
-.card-title {
+.card-header {
   font-weight: 500;
+  animation: ease-in;
   margin-bottom: 15px;
   text-transform: capitalize;
   font-family: Georgia, 'Times New Roman', Times, serif;
-  font-size: 12px;
+  font-size: 18px;
 }
 
 .card {
-  border-radius: 0.5rem;
-  box-shadow: gray;
+  width:100%;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  color: #db1515;
+  background-color: transparent;
   margin-top: 20px;
   margin-bottom: 10px;
+  background-color: #C2DAF3;
 }
 
 path {
@@ -70,4 +77,9 @@ path {
 path:hover {
   opacity: 0.50;
   cursor: pointer;
+}
+
+.us-state-map {
+  height: 500px;
+  width: 100%;
 }
