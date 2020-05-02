@@ -29,6 +29,7 @@ export default function GlobalDataTable({ columns, data }) {
   };
 
   // Render the UI for your table
+  
   return (
     <>
     
@@ -40,7 +41,7 @@ export default function GlobalDataTable({ columns, data }) {
         placeholder={"Search country"}
       />
       
-      <table className = "table table-striped" {...getTableProps()}>
+      <table className = "table table-striped" style ={{backgroundColor: "#91c4f9"}} {...getTableProps()}>
         <thead>
           {headerGroups.map(headerGroup => (
             <tr {...headerGroup.getHeaderGroupProps()}>

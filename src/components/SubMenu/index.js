@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css"; 
 import ToggleMenu from "../ToggleMenu";
 import CoronaVirus from "../../assets/images/Coronavirus.png";
-
+//import Example from "../../components/Collapse"
 
 function Sidebar() {
 
@@ -14,9 +14,9 @@ function Sidebar() {
             <nav id="sidebar">
                 <div className="sidebar-header">
 
-                <a className="navbar-brand" href="#">
-                    <img className= "image" src={CoronaVirus} />
-                    ViD-APP</a>
+                <Link className="navbar-brand" Link to ='/home'>
+                    <img className= "image" src={CoronaVirus}/>
+                    ViD-APP</Link>
 
                 
                     <ToggleMenu 
@@ -79,7 +79,7 @@ function Sidebar() {
                         </Link>
                     </li>
                     
-
+                   {/* <Example /> */}
                 </ul>
                 
             </nav>
