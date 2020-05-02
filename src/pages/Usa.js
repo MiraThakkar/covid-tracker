@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 // import './App.css'; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
+import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import API from "../utils/API";
+import Card from "../components/Card"
  
 const states = {'Alabama':'AL',
 'Alaska':'AK',
@@ -75,10 +77,16 @@ class Map extends Component {
     console.log(query);
     console.log(searchDate);
     API.searchState(query, searchDate)
-    // .then(res => this.setState({ results: res.data.response }))//??
+    // .then(res => this.setState({ results: res.data.response}))//??
     // // .then(res => this.setState({ results: res.response }))
-    .then(res => console.log(res))
-    //.catch(err => console.log(err));
+    .then(
+      res => {
+        console.log(res);
+        this.setState({ results: res.data });
+        console.log(this.state.results[0]);
+      }
+    )
+    .catch(err => console.log(err));
   };
 
     handleInputChange = event => {
@@ -93,7 +101,7 @@ class Map extends Component {
     mapHandler = async (event) => {
       const value = this.getKeyByValue (states, event.target.dataset.name );
       await this.setState({stateName: value});
-      alert(this.state.stateName);
+      // alert(this.state.stateName);
       this.searchByState(this.state.stateName, this.state.date);
       
     };
@@ -113,21 +121,39 @@ class Map extends Component {
  
   render() {
     return (
-      <div className= "container" style= {{padding: "20px 20px"}}>
- -
-        <div className = "map">
-          <input
-            onChange={this.handleInputChange}
-            value={this.state.date}
-            name="date"
-            type="date"
-            className="form-control"
-            placeholder="date"
-            id="date"
-          />
-          <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
-        </div>
+      <div className= "row" style= {{padding: "20px 20px"}}>
+
+      <input
+        onChange={this.handleInputChange}
+        value={this.state.date}
+        name="date"
+        type="date"
+        className="form-control"
+        placeholder="date"
+        id="date"
+      />
+-
+      <div className = "map col-md-8 mt-3">
+      
+        <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
+
       </div>
+
+      <div className = "col-md-3 mt-5 ">
+        {this.state.results.map(result => (
+        <Card 
+            title = {result.region.province}
+            // date = {result.date}
+            active = {result.active}
+            recovered = {result.recovered}
+            confirmed = {result.confirmed}
+            deaths = {result.deaths}
+        >
+        </Card>
+        ))}
+      
+      </div>
+    </div>
     );
   }
 }
