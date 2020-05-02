@@ -11,6 +11,8 @@ module.exports = {
   },
 
   create: function(req, res) {
+    console.log("Into cretaing user");
+    console.log(req)
     db.User
       .create(req.body)
       .then(dbModel => res.json(dbModel))
