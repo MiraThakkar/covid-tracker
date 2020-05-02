@@ -3,23 +3,29 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-  username: {
+  firstName: {
     type: String,
     trim: true,
     required: "Username is Required"
   },
 
-  password: {
+  lastName: {
     type: String,
     trim: true,
-    required: "Password is Required",
-    validate: [({ length }) => length >= 6, "Password should be longer."]
+    required: "Username is Required"
   },
 
   email: {
     type: String,
     unique: true,
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+  },
+
+  password: {
+    type: String,
+    trim: true,
+    required: "Password is Required",
+    validate: [({ length }) => length >= 8, "Password should be longer."]
   },
 
   userCreated: {
@@ -31,3 +37,5 @@ const UserSchema = new Schema({
 const User = mongoose.model("User", UserSchema);
 
 module.exports = User;
+
+
