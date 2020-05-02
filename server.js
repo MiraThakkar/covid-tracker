@@ -4,28 +4,25 @@ const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
 
-const User = require("./userModel.js");
+const routes = require("./routes");
+//const User = require("./models/user.js");
 const app = express();
 
-app.use(logger("dev"));
+app.use(logger("dev"));//?
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
+// Add routes, both API and view
+app.use(routes);
+// // Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/reactreadinglist");
 
-app.use(express.static("public"));
-
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/userdb", { useNewUrlParser: true });
-
-app.post("/submit", ({ body }, res) => {
-  User.create(body)
-    .then(dbUser => {
-      res.json(dbUser);
-    })
-    .catch(err => {
-      res.json(err);
-    });
-});
-
+// Start the API server
 app.listen(PORT, () => {
-  console.log(`App running on port ${PORT}!`);
+  //console.log(`App running on port ${PORT}!`);
+  console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);
 });
+
