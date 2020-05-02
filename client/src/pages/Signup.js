@@ -22,11 +22,12 @@ export default class SignUp extends Component {
 
       handleFormSubmit = event => {
         event.preventDefault();
+        console.log("Senting post request")
         return axios.post('/api/users/submit', {
             firstName: this.state.firstName, 
             lastName: this.state.lastName,
             email: this.state.email,
-            pasword: this.state.password
+            password: this.state.password
         })
           .then(function (response) {
             console.log(response);
@@ -53,7 +54,7 @@ export default class SignUp extends Component {
         
         return (
             <div className= "signup">
-                <form style= {mystyle}>
+                <div style= {mystyle}>
                     <h4>Sign Up</h4>
 
                     <div className="form-group">
@@ -96,8 +97,8 @@ export default class SignUp extends Component {
                     <p className="forgot-password text-right">
                         <Link to="/Login"> Already registered?</Link>
                     </p>
-                </form>
-                <button onSubmit={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                </div>
+                <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button>
             </div>
         );
     }
