@@ -68,7 +68,7 @@ class Dashboard extends Component {
     datasets: [{
         label: 'Product-1',
         data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
-        backgroundColor: '#8aaec9',
+        backgroundColor: '#577F9F',
         borderColor: '#0c83e2',
         borderWidth: 1,
         fill: true,
@@ -220,7 +220,8 @@ amountDueBarOptions = {
 
   render () {
     return (
-      <div>
+      //page background color
+      <div className= "page" style= {{backgroundColor: "#577F9F"}}> 
         <Container fluid>
             <Row>
               <Col size="md-2">
@@ -230,7 +231,7 @@ amountDueBarOptions = {
                 <Navbar />
               
       {/* changed background color to light blue */}
-        <div className= "container" style= {{padding: "20px 20px", backgroundColor: "#9bbad1"}}> 
+        <div className= "container" style= {{padding: "20px 20px", backgroundColor: "#91a5b9"}}> 
 
           <SearchForm
             search={this.state.search}
