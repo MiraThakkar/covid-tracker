@@ -62,6 +62,7 @@ body {
 
 .card {
   width:100%;
+  border: none;
   font-size: 16px;
   font-family: 'Times New Roman', Times, serif;
   color: #db1515;
@@ -79,6 +80,11 @@ path:hover {
 }
 
 .us-state-map {
-  height: 500px;
+  height: 100%;
   width: 100%;
+}
+/* Date Input on USA page */
+
+#date {
+  width: 50%;
 }

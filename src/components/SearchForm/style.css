@@ -12,9 +12,9 @@
 .form-control {
      padding-left: 30px;
     /* margin: 10px;  */
-    border-top: none;
+    /* border-top: none;
     border-left: none;
-    border-right:none;
+    border-right:none; */
     max-width: 100%;
     border-bottom: 0.5px solid gray;
 }

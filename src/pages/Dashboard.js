@@ -7,6 +7,7 @@ import { ProgressBar} from 'react-bootstrap';
 
 
 
+
 class Dashboard extends Component {
 
   state = {
@@ -217,169 +218,170 @@ amountDueBarOptions = {
 
   render () {
     return (
+
         <div className= "container" style= {{padding: "20px 20px"}}>
 
-          <SearchForm
-            search={this.state.search}
-            handleFormSubmit={this.handleFormSubmit}
-            handleInputChange={this.handleInputChange}
-          />
+              <SearchForm
+                search={this.state.search}
+                handleFormSubmit={this.handleFormSubmit}
+                handleInputChange={this.handleInputChange}
+              />
 
-          <div className="row">
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div className="card card-statistics">
-                <div className="card-body">
-                  <div className="clearfix">
-                    <div className="float-left">
-                      <i className="mdi mdi-cube text-danger icon-lg"></i>
-                    </div>
-                    <div className="float-right">
-                      <p className="mb-0 text-right text-dark">Total Cases</p>
-                      <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark">{this.state.totalCases}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-muted mt-3 mb-0">
-                    <i className="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 12% growth </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div className="card card-statistics">
-                <div className="card-body">
-                  <div className="clearfix">
-                    <div className="float-left">
-                      <i className="mdi mdi-receipt text-warning icon-lg"></i>
-                    </div>
-                    <div className="float-right">
-                      <p className="mb-0 text-right text-dark">New Cases</p>
-                      <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.newCases} </h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-muted mt-3 mb-0"> Place Holder </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div className="card card-statistics">
-                <div className="card-body">
-                  <div className="clearfix">
-                    <div className="float-left">
-                      <i className="mdi mdi-poll-box text-success icon-lg"></i>
-                    </div>
-                    <div className="float-right">
-                      <p className="mb-0 text-right text-dark">Recovered</p>
-                      <div className="fluid-container">
-    <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.recovered} </h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-muted mt-3 mb-0">
-                    <i className="mdi mdi-calendar mr-1" aria-hidden="true"></i> Place Holder </p>
-                </div>
-              </div>
-            </div>
-            <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
-              <div className="card card-statistics">
-                <div className="card-body">
-                  <div className="clearfix">
-                    <div className="float-left">
-                      <i className="mdi mdi-account-box-multiple text-info icon-lg"></i>
-                    </div>
-                    <div className="float-right">
-                      <p className="mb-0 text-right text-dark">Total Death</p>
-                      <div className="fluid-container">
-                        <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.totalDeath}</h3>
-                      </div>
-                    </div>
-                  </div>
-                  <p className="text-muted mt-3 mb-0">
-                    <i className="mdi mdi-reload mr-1" aria-hidden="true"></i> Place Holder </p>
-                </div>
-              </div>
-            </div>
-        </div>
-        <div className="row">
-          <div className="col-md-12 grid-margin">
-            <div className="card">
-              <div className="card-body">
-                <div className="d-flex justify-content-between align-items-center mb-4">
-                  <h2 className="card-title mb-0">Analysis</h2>
-                  <div className="wrapper d-flex">
-                    <div className="d-flex align-items-center mr-3">
-                      <span className="dot-indicator bg-success"></span>
-                      <p className="mb-0 ml-2 text-muted">Place Holder</p>
-                    </div>
-                    <div className="d-flex align-items-center">
-                      <span className="dot-indicator bg-primary"></span>
-                      <p className="mb-0 ml-2 text-muted">PlaceHolder</p>
-                    </div>
-                  </div>
-                </div>
-                <div className="chart-container">
-                <Line data={this.areaData} options={this.areaOptions}  datasetKeyProvider={this.datasetKeyProvider} height={80} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="row">
-          <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-5 d-flex align-items-center">
-                    <Doughnut data={this.usersDoughnutChartData} options={this.usersDoughnutChartOptions} width= {180} />
-                  </div>
-                  <div className="col-md-7">
-                    <h4 className="card-title font-weight-medium mb-0 d-none d-md-block">Active Cases</h4>
-                    <div className="wrapper mt-4">
-                      <div className="d-flex justify-content-between mb-2">
-                        <div className="d-flex align-items-center">
-                          <p className="mb-0 font-weight-medium"> {this.state.activeCases} </p>
-                          <small className="text-muted ml-2">Total Tests</small>
+              <div className="row">
+                <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card card-statistics">
+                    <div className="card-body">
+                      <div className="clearfix">
+                        <div className="float-left">
+                          <i className="mdi mdi-cube text-danger icon-lg"></i>
                         </div>
-                        <p className="mb-0 font-weight-medium">80%</p>
-                      </div>
-                        <ProgressBar variant="primary" now={80}/>
-                    </div>
-                    <div className="wrapper mt-4">
-                      <div className="d-flex justify-content-between mb-2">
-                        <div className="d-flex align-items-center">
-                          <p className="mb-0 font-weight-medium">21,435</p>
-                          <small className="text-muted ml-2">Positive</small>
+                        <div className="float-right">
+                          <p className="mb-0 text-right text-dark">Total Cases</p>
+                          <div className="fluid-container">
+                            <h3 className="font-weight-medium text-right mb-0 text-dark">{this.state.totalCases}</h3>
+                          </div>
                         </div>
-                        <p className="mb-0 font-weight-medium">34%</p>
                       </div>
-                        <ProgressBar variant="success" now={34}/>
+                      <p className="text-muted mt-3 mb-0">
+                        <i className="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 12% growth </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card card-statistics">
+                    <div className="card-body">
+                      <div className="clearfix">
+                        <div className="float-left">
+                          <i className="mdi mdi-receipt text-warning icon-lg"></i>
+                        </div>
+                        <div className="float-right">
+                          <p className="mb-0 text-right text-dark">New Cases</p>
+                          <div className="fluid-container">
+                            <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.newCases} </h3>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-muted mt-3 mb-0"> Place Holder </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card card-statistics">
+                    <div className="card-body">
+                      <div className="clearfix">
+                        <div className="float-left">
+                          <i className="mdi mdi-poll-box text-success icon-lg"></i>
+                        </div>
+                        <div className="float-right">
+                          <p className="mb-0 text-right text-dark">Recovered</p>
+                          <div className="fluid-container">
+        <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.recovered} </h3>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-muted mt-3 mb-0">
+                        <i className="mdi mdi-calendar mr-1" aria-hidden="true"></i> Place Holder </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
+                  <div className="card card-statistics">
+                    <div className="card-body">
+                      <div className="clearfix">
+                        <div className="float-left">
+                          <i className="mdi mdi-account-box-multiple text-info icon-lg"></i>
+                        </div>
+                        <div className="float-right">
+                          <p className="mb-0 text-right text-dark">Total Death</p>
+                          <div className="fluid-container">
+                            <h3 className="font-weight-medium text-right mb-0 text-dark"> {this.state.totalDeath}</h3>
+                          </div>
+                        </div>
+                      </div>
+                      <p className="text-muted mt-3 mb-0">
+                        <i className="mdi mdi-reload mr-1" aria-hidden="true"></i> Place Holder </p>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <div className="row">
+              <div className="col-md-12 grid-margin">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="d-flex justify-content-between align-items-center mb-4">
+                      <h2 className="card-title mb-0">Analysis</h2>
+                      <div className="wrapper d-flex">
+                        <div className="d-flex align-items-center mr-3">
+                          <span className="dot-indicator bg-success"></span>
+                          <p className="mb-0 ml-2 text-muted">Place Holder</p>
+                        </div>
+                        <div className="d-flex align-items-center">
+                          <span className="dot-indicator bg-primary"></span>
+                          <p className="mb-0 ml-2 text-muted">PlaceHolder</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="chart-container">
+                    <Line data={this.areaData} options={this.areaOptions}  datasetKeyProvider={this.datasetKeyProvider} height={80} />
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-          <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
-            <div className="card">
-              <div className="card-body">
-                <div className="row">
-                  <div className="col-md-7">
-                    <h4 className="card-title font-weight-medium mb-3">Place Holder</h4>
-                    <h1 className="font-weight-medium mb-0 text-dark">5998</h1>
-                    <p className="text-muted">Place Holder</p>
-                    <p className="mb-0">Place Holder</p>
+            <div className="row">
+              <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-md-5 d-flex align-items-center">
+                        <Doughnut data={this.usersDoughnutChartData} options={this.usersDoughnutChartOptions} width= {180} />
+                      </div>
+                      <div className="col-md-7">
+                        <h4 className="card-title font-weight-medium mb-0 d-none d-md-block">Active Cases</h4>
+                        <div className="wrapper mt-4">
+                          <div className="d-flex justify-content-between mb-2">
+                            <div className="d-flex align-items-center">
+                              <p className="mb-0 font-weight-medium"> {this.state.activeCases} </p>
+                              <small className="text-muted ml-2">Total Tests</small>
+                            </div>
+                            <p className="mb-0 font-weight-medium">80%</p>
+                          </div>
+                            <ProgressBar variant="primary" now={80}/>
+                        </div>
+                        <div className="wrapper mt-4">
+                          <div className="d-flex justify-content-between mb-2">
+                            <div className="d-flex align-items-center">
+                              <p className="mb-0 font-weight-medium">21,435</p>
+                              <small className="text-muted ml-2">Positive</small>
+                            </div>
+                            <p className="mb-0 font-weight-medium">34%</p>
+                          </div>
+                            <ProgressBar variant="success" now={34}/>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="col-md-5 d-flex align-items-end mt-4 mt-md-0">
-                    <Bar data={this.amountDueBarData} options={this.amountDueBarOptions} />    
+                </div>
+              </div>
+              <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
+                <div className="card">
+                  <div className="card-body">
+                    <div className="row">
+                      <div className="col-md-7">
+                        <h4 className="card-title font-weight-medium mb-3">Place Holder</h4>
+                        <h1 className="font-weight-medium mb-0 text-dark">5998</h1>
+                        <p className="text-muted">Place Holder</p>
+                        <p className="mb-0">Place Holder</p>
+                      </div>
+                      <div className="col-md-5 d-flex align-items-end mt-4 mt-md-0">
+                        <Bar data={this.amountDueBarData} options={this.amountDueBarOptions} />    
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
+    </div>
       
     )
     

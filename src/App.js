@@ -17,12 +17,12 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Container fluid>
+          {/* <Container fluid>
             <Row>
               <Col size="md-2">
                 <SideMenu />
               </Col>
-              <Col size ="md-10">
+              <Col size ="md-10"> */}
                 {/* <Navbar /> */}
                 {/* <ToggleMenu 
                     render={({on, toggle})=>(
@@ -40,9 +40,9 @@ function App() {
                 <Route exact path="/usaForm" component={usaForm} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={SignUp} />
-              </Col>
+              {/* </Col>
             </Row>
-          </Container>
+          </Container> */}
         </div>
       </Router>
     </div>
