@@ -7,8 +7,6 @@ import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
 import usaForm from "./pages/Usa"
-
-
 function App() {
   return (
     <div className="App">
