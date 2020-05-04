@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "./style.css"; 
 import ToggleMenu from "../ToggleMenu";
 import CoronaVirus from "../../assets/images/Coronavirus.png";
-
+//import Example from "../../components/Collapse"
 
 function Sidebar() {
 
@@ -14,18 +14,23 @@ function Sidebar() {
             <nav id="sidebar">
                 <div className="sidebar-header">
 
-                <a className="navbar-brand" href="#">
-                    <img className= "image" src={CoronaVirus} />
-                    ViD-APP</a>
+                <Link className="navbar-brand" Link to ='/home'>
+                    <img className= "image" src={CoronaVirus}/>
+                    ViD-APP</Link>
 
                 
                     <ToggleMenu 
                    render={({on, toggle})=>(
                      <div>
 
-                       {on && <Link to ='/Login' >Sign In / </Link>}
+                        {on && <Link to ='/Login' >Sign In <span className= "p-2"> | </span></Link>}
+                        
+                        {on && <Link to ='/Signup' > Sign Up </Link>}
+                     
+                          {/* Mira's changes <button onClick= {toggle}></button> */}
+                       {/* {on && <Link to ='/Login' >Sign In / </Link>}
                        
-                       {on && <Link to ='/Signup' > Sign Up </Link>}
+                       {on && <Link to ='/Signup' > Sign Up </Link>} */}
                          {/* <button onClick= {toggle}></button> */}
 
                          <button  onClick= {toggle}
@@ -37,7 +42,7 @@ function Sidebar() {
 
                 {/* </button> */}
                 </div>
-                <button className = "btn btn-info mt-3"><i class="fas fa-chart-bar"></i>  Dashboard
+                <button className = "btn btn-info mt-3"><i className="fas fa-chart-bar"></i>  Dashboard
                 </button>
                 <ul className="navbar-nav">
                     
@@ -45,7 +50,7 @@ function Sidebar() {
                         <Link
                             to="/home" className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
                         >
-                        <i class="fas fa-home"></i> Home
+                        <i className="fas fa-home"></i> Home
                         </Link>
                     </li>
                     <li className="nav-item">
@@ -57,7 +62,7 @@ function Sidebar() {
                             : "nav-link"
                             }
                         >
-                       <i class="fas fa-chart-bar"></i> Dashboard
+                       <i className="fas fa-chart-bar"></i> Dashboard
                         </Link>
                     </li>
                     
@@ -70,11 +75,11 @@ function Sidebar() {
                             : "nav-link"
                             }
                         >
-                        <i class="fas fa-map"></i> Map
+                        <i className="fas fa-map"></i> Map
                         </Link>
                     </li>
                     
-
+                   {/* <Example /> */}
                 </ul>
                 
             </nav>

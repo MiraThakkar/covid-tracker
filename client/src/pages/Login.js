@@ -1,11 +1,27 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Login ()  {
+    const mystyle = {
+        color: "white",
+        backgroundColor: "DodgerBlue",
+        padding: "15px",
+        fontFamily: "Arial",
+        height: "auto",
+        width: "auto",
+        marginLeft: "30%",
+        marginRight: "30%",
+        background: "#2196f3",
+        marginTop: "5%",
+        marginBottom: "5%"
+      };
+
+    
         return (
             <div>
                 
-                <form>
-                    <h3>Sign In</h3>
+                <form style= {mystyle} >
+                    <h4>Sign In</h4>
 
                     <div className="form-group">
                         <label>Email address</label>
@@ -26,7 +42,7 @@ function Login ()  {
 
                     <button type="submit" className="btn btn-primary btn-block">Submit</button>
                     <p className="forgot-password text-right">
-                        Forgot <a href="#">password?</a>
+                         <Link to="/ResetPassword"> Forgot Password?</Link>
                     </p>
                 </form>
         </div>
