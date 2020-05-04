@@ -63,7 +63,7 @@ function Home() {
             <Col size ="md-10">
               <Navbar />
               <Table
-              columns= {columns} data= {data}>
+                columns= {columns} data= {data}>
               </Table>
             </Col>
           </Row>
