@@ -4,6 +4,9 @@ import USAMap from "react-usa-map";
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import API from "../utils/API";
 import Card from "../components/Card"
+import { Col, Row, Container } from "../components/Grid";
+import SubMenu from "../components/SubMenu";
+import Navbar from "../components/Navbar";
  
 const states = {'Alabama':'AL',
 'Alaska':'AK',
@@ -122,38 +125,46 @@ class Map extends Component {
   render() {
     return (
       <div className= "row" style= {{padding: "20px 20px"}}>
-
-      <input
-        onChange={this.handleInputChange}
-        value={this.state.date}
-        name="date"
-        type="date"
-        className="form-control"
-        placeholder="date"
-        id="date"
-      />
+        <Container fluid>
+            <Row>
+              <Col size="md-2">
+                <SubMenu />
+              </Col>
+              <Col size ="md-10">
+                  <input
+                    onChange={this.handleInputChange}
+                    value={this.state.date}
+                    name="date"
+                    type="date"
+                    className="form-control"
+                    placeholder="date"
+                    id="date"
+                  />
 -
-      <div className = "map col-md-8 mt-3">
-      
-        <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
+                  <div className = "map col-md-8 mt-3">
+                  
+                    <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
 
-      </div>
+                  </div>
 
-      <div className = "col-md-3 mt-5 ">
-        {this.state.results.map(result => (
-        <Card 
-            title = {result.region.province}
-            // date = {result.date}
-            active = {result.active}
-            recovered = {result.recovered}
-            confirmed = {result.confirmed}
-            deaths = {result.deaths}
-        >
-        </Card>
-        ))}
-      
+                  <div className = "col-md-3 mt-5 ">
+                    {this.state.results.map(result => (
+                    <Card 
+                        title = {result.region.province}
+                        // date = {result.date}
+                        active = {result.active}
+                        recovered = {result.recovered}
+                        confirmed = {result.confirmed}
+                        deaths = {result.deaths}
+                    >
+                    </Card>
+                    ))}
+                  </div>
+    
+              </Col>
+            </Row>
+         </Container>
       </div>
-    </div>
     );
   }
 }

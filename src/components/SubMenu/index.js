@@ -42,7 +42,7 @@ function Sidebar() {
 
                 {/* </button> */}
                 </div>
-                <button className = "btn btn-info mt-3"><i class="fas fa-chart-bar"></i>  Dashboard
+                <button className = "btn btn-info mt-3"><i className="fas fa-chart-bar"></i>  Dashboard
                 </button>
                 <ul className="navbar-nav">
                     
@@ -50,7 +50,7 @@ function Sidebar() {
                         <Link
                             to="/home" className={window.location.pathname === "/home" ? "nav-link active" : "nav-link"}
                         >
-                        <i class="fas fa-home"></i> Home
+                        <i className="fas fa-home"></i> Home
                         </Link>
                     </li>
                     <li className="nav-item">
@@ -62,7 +62,7 @@ function Sidebar() {
                             : "nav-link"
                             }
                         >
-                       <i class="fas fa-chart-bar"></i> Dashboard
+                       <i className="fas fa-chart-bar"></i> Dashboard
                         </Link>
                     </li>
                     
@@ -75,10 +75,22 @@ function Sidebar() {
                             : "nav-link"
                             }
                         >
-                        <i class="fas fa-map"></i> Map
+                        <i className="fas fa-map"></i> Map
                         </Link>
                     </li>
                     
+                    <li className="nav-item">
+                        <Link
+                            to="/symptoms"
+                            className={
+                            window.location.pathname === "/symptoms" || window.location.pathname === "/symptoms"
+                            ? "nav-link active"
+                            : "nav-link"
+                            }
+                        >
+                        <i className="fas fa-file-medical"></i> Symptoms
+                        </Link>
+                    </li>
                    {/* <Example /> */}
                 </ul>
                 
