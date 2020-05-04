@@ -1,12 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link, NavLink } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route} from "react-router-dom";
 import './App.css';
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
-import usaForm from "./components/SearchForm/Usa"
+import usaForm from "./pages/Usa"
 
 
 function App() {

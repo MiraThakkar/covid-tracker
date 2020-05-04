@@ -56,21 +56,18 @@ function Home() {
   return (
     <div>
       <Container fluid>
-            <Row>
-              <Col size="md-2">
-                <SubMenu />
-              </Col>
-              <Col size ="md-10">
-                <Navbar />
-              
-      
-      
-      <Table
-       columns= {columns} data= {data}>
-      </Table>
-      </Col>
-      </Row>
-      </Container>
+          <Row>
+            <Col size="md-2">
+              <SubMenu />
+            </Col>
+            <Col size ="md-10">
+              <Navbar />
+              <Table
+              columns= {columns} data= {data}>
+              </Table>
+            </Col>
+          </Row>
+        </Container>
       </div>
     );
 }
