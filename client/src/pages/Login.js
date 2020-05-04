@@ -12,12 +12,8 @@ function Login ()  {
         marginLeft: "30%",
         marginRight: "30%",
         background: "#2196f3",
-<<<<<<< HEAD:client/src/pages/Login.js
         marginTop: "5%",
         marginBottom: "5%"
-=======
-        marginTop: "10%"
->>>>>>> master:src/pages/Login.js
       };
 
     

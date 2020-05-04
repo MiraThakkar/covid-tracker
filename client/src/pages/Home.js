@@ -56,7 +56,6 @@ function Home() {
   return (
     <div>
       <Container fluid>
-<<<<<<< HEAD:client/src/pages/Home.js
           <Row>
             <Col size="md-2">
               <SubMenu />
@@ -64,28 +63,11 @@ function Home() {
             <Col size ="md-10">
               <Navbar />
               <Table
-                columns= {columns} data= {data}>
+              columns= {columns} data= {data}>
               </Table>
             </Col>
           </Row>
         </Container>
-=======
-            <Row>
-              <Col size="md-2">
-                <SubMenu />
-              </Col>
-              <Col size ="md-10">
-                <Navbar />
-              
-      
-      
-      <Table
-       columns= {columns} data= {data}>
-      </Table>
-      </Col>
-      </Row>
-      </Container>
->>>>>>> 078df567c47fee03360990b4274cef65f924526d:src/pages/Home.js
       </div>
     );
 }

@@ -1,9 +1,5 @@
 import React from "react";
-<<<<<<< HEAD
 // import { Link } from "react-router-dom";
-=======
-import { Link } from "react-router-dom";
->>>>>>> 078df567c47fee03360990b4274cef65f924526d
 
 function ResetPassword ()  {
     const mystyle = {
