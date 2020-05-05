@@ -6,7 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
-import usaForm from "./components/SearchForm/Usa"
+import usaForm from "./pages/Usa"
 
 
 function App() {
@@ -18,8 +18,6 @@ function App() {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
-                {/* <Route exact path="/Login" component={Login} />
-                <Route exact path="/Signup" component={SignUp} /> */}
                 <Route exact path="/usaForm" component={usaForm} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={SignUp} />
