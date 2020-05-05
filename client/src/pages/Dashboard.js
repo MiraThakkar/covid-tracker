@@ -16,53 +16,78 @@ function Dashboard() {
  const [deaths, setDeath] = useState([]);
  const [search, setSearch] = useState("");
  const [stats, setStats] = useState([]);
- const [isSearching, setIsSearching] = useState(false);
+ const [deathStats, setDeathStats] = useState([]);
+ const [recoveryStats, setRecoveryStats] = useState([]);
+ 
 
- useEffect(() => { 
+useEffect(() => { 
    var country = "usa";
+   getStats(country);
+   
    API.search(country).then(res => {
+     
      setCases(res.data.response[0].cases);
      setDeath(res.data.response[0].deaths);
-        
+     
    })
-   }, []);
+   },[]);
 
   function handleInputChange (event) {
     const value = event.target.value;
-    setSearch(value);
-    getStats(value);
-    
+    setSearch(value)
+    getStats(search);
     }
   
     
 
   function handleFormSubmit(event) {
-    event.preventDefault();
-    API.search(search).then(res => {
-      setCases(res.data.response[0].cases);
-      setDeath(res.data.response[0].deaths);
     
-    })
+    event.preventDefault();
+    
+    if(search){
+      getStats(search);
+      API.search(search)
+      .then(res => {
+        
+        
+        setCases(res.data.response[0].cases);
+        setDeath(res.data.response[0].deaths);
+        
+        
+      }).catch(err => console.log(err))
+    }
   };
 
-  function getStats(value) {
+  async function getStats(value) {
     console.log("inside getStats");
     var statArray = [];
+    var recoveredArray = [];
+    var deathArray = []
     var query = value;
     var i;
-    for(i=6; i>=0; i--) {
-      var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-      console.log("date: " + date);
-      console.log(query);
-      API.searchStats(date, query).then(res => {
-      const result = res.data.response[0].cases;
-      statArray.push(result.new);
-      console.log(statArray);
-      })
-
-      setStats(statArray);
-    }
-
+    if(query) {
+      for(i=7; i>=0; i--) {
+        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD")
+        API.searchStats(date, query).then(res => {
+        const result = res.data.response[0].cases;  
+        const deathResult = res.data.response[0].deaths;    
+        statArray.push(result.new);
+        recoveredArray.push(result.recovered);
+        deathArray.push(deathResult.total)
+        console.log(statArray);
+        console.log(recoveredArray);
+        console.log(deathArray);
+        })
+        setStats(statArray);
+        setDeathStats(deathArray);
+        setRecoveryStats(recoveredArray);
+      }
+    } 
+    else {
+        setStats(stats);
+        setDeathStats(deathStats);
+        setRecoveryStats(recoveryStats);
+    }      
   };
 
   console.log("Stats: ", stats);
@@ -70,10 +95,10 @@ function Dashboard() {
   
 
   const areaData = {
-    labels: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
+    labels: ["0", "1", "2", "3", "4", "5", "6"],
     datasets: [{
-        label: 'Product-1',
-        data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
+        label: 'Death',
+        data: deathStats,
         backgroundColor: '#577F9F',
         borderColor: '#0c83e2',
         borderWidth: 1,
@@ -81,8 +106,8 @@ function Dashboard() {
         datasetKeyProvider: "key1"
       },
       {
-        label: 'Product-2',
-        data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5],
+        label: 'Recovered',
+        data: recoveryStats,
         backgroundColor: '#19d895',
         borderColor: '#15b67d',
         borderWidth: 1,
@@ -103,8 +128,8 @@ function Dashboard() {
         ticks: {
           beginAtZero: true,
           min: 0,
-          max: 20,
-          stepSize: 5,
+          max: 200000,
+          stepSize: 25000,
         }
       }],
       xAxes: [{
@@ -246,8 +271,6 @@ const amountDueBarOptions = {
                 handleInputChange={handleInputChange}
               />
 
-              {isSearching && <div>Searching ...</div>}
-
               <div className="row">
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
@@ -301,7 +324,7 @@ const amountDueBarOptions = {
                         </div>
                       </div>
                       <p className="text-muted mt-3 mb-0">
-                        <i className="mdi mdi-calendar mr-1" aria-hidden="true"></i>  </p>
+                        <i className="mdi mdi-calendar mr-1" aria-hidden="true"></i>  Place Holder </p>
                     </div>
                   </div>
                 </div>
@@ -330,15 +353,15 @@ const amountDueBarOptions = {
                   <div className="card">
                     <div className="card-body">
                       <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="card-title mb-0">Analysis</h2>
+                        <h2 className="card-title mb-0">Tracker</h2>
                         <div className="wrapper d-flex">
                           <div className="d-flex align-items-center mr-3">
                             <span className="dot-indicator bg-success"></span>
-                            <p className="mb-0 ml-2 text-muted">Place Holder</p>
+                            <p className="mb-0 ml-2 text-muted">Death</p>
                           </div>
                           <div className="d-flex align-items-center">
                             <span className="dot-indicator bg-primary"></span>
-                            <p className="mb-0 ml-2 text-muted">PlaceHolder</p>
+                            <p className="mb-0 ml-2 text-muted">Recovered</p>
                           </div>
                         </div>
                       </div>
