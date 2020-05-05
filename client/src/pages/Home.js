@@ -48,7 +48,7 @@ function Home() {
   const [data, setdata] = useState([]);
 
   useEffect(() => { 
-    API.stats().then(res => {
+    API.search().then(res => {
       setdata(res.data.response)
     })
     }, []);
