@@ -115,17 +115,17 @@ function Map (){
     };
  
   /* optional customization of filling per state and calling custom callbacks per state */
-   function statesCustomConfig () {
-      return {
-        "CT": {
-          fill: "navy",
-          // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
-        },
-        "NY": {
-          fill: "#CC0000"
-        }
-      };  
-    };                                                                            
+  //  function statesCustomConfig () {
+  //     return {
+  //       "CT": {
+  //         fill: "navy",
+  //         // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
+  //       },
+  //       "NY": {
+  //         fill: "#CC0000"
+  //       }
+  //     };  
+  //   };                                                                            
  
     return (
       
@@ -164,207 +164,11 @@ function Map (){
                   >
                   </Card>}
                 </Col>
-
               </Row>
             </Col>
           </Row>
         </Container>
       </div>
-
-// const states = {'Alabama':'AL',
-// 'Alaska':'AK',
-// 'Arizona':'AZ',
-// 'Arkansas':'AR',
-// 'California':'CA',
-// 'Colorado':'CO',
-// 'Connecticut':'CT',
-// 'Delaware':'DE',
-// 'Florida':'FL',
-// 'Georgia':'GA',
-// 'Hawaii':'HI',
-// 'Idaho':'ID',
-// 'Illinois':'IL',
-// 'Indiana':'IN',
-// 'Iowa':'IA',
-// 'Kansas':'KS',
-// 'Kentucky':'KY',
-// 'Louisiana':'LA',
-// 'Maine':'ME',
-// 'Maryland':'MD',
-// 'Massachusetts':'MA',
-// 'Michigan':'MI',
-// 'Minnesota':'MN',
-// 'Mississippi':'MS',
-// 'Missouri':'MO',
-// 'Montana':'MT',
-// 'Nebraska':'NE',
-// 'Nevada':'NV',
-// 'New Hampshire':'NH',
-// 'New Jersey':'NJ',
-// 'New Mexico':'NM',
-// 'New York':'NY',
-// 'North Carolina':'NC',
-// 'North Dakota':'ND',
-// 'Ohio':'OH',
-// 'Oklahoma':'OK',
-// 'Oregon':'OR',
-// 'Pennsylvania':'PA',
-// 'Rhode Island':'RI',
-// 'South Carolina':'SC',
-// 'South Dakota':'SD',
-// 'Tennessee':'TN',
-// 'Texas':'TX',
-// 'Utah':'UT',
-// 'Vermont':'VT',
-// 'Virginia':'VA',
-// 'Washington':'WA',
-// 'West Virginia':'WV',
-// 'Wisconsin':'WI',
-// 'Wyoming':'WY'
-// };
-// class Map extends Component {
-
-//   state = {
-//         stateName: "",
-//         date: "",
-//         results: [],
-
-//       };
-  
-//   getKeyByValue = (object, value)  => { 
-//     return Object.keys(object).find(key => object[key] === value);
-    
-//    }
-//   // componentDidMount() {
-//   //   this.searchByCountry(this.search);
-//   // }
-//   searchByState = (query, searchDate) => {
-//     //console.log(query)
-//     console.log(query);
-//     console.log(searchDate);
-//     API.searchState(query, searchDate)
-//     // .then(res => this.setState({ results: res.data.response}))//??
-//     // // .then(res => this.setState({ results: res.response }))
-//     .then(
-//       res => {
-//         console.log(res);
-//         this.setState({ results: res.data });
-//         console.log(this.state.results[0]);
-//       }
-//     )
-//     .catch(err => console.log(err));
-//   };
-
-//   handleInputChange = event => {
-//     const name = event.target.name;
-//     const value = event.target.value;
-//     this.setState({
-//       [name]: value
-//     });
-//   };
-    
-//   /* mandatory */
-//     mapHandler = async (event) => {
-//       const value = this.getKeyByValue (states, event.target.dataset.name );
-//       await this.setState({stateName: value});
-//       // alert(this.state.stateName);
-//       this.searchByState(this.state.stateName, this.state.date);
-      
-//     };
- 
-//   /* optional customization of filling per state and calling custom callbacks per state */
-//     statesCustomConfig = () => {
-//       return {
-//         "CT": {
-//           fill: "navy",
-//           // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
-//         },
-//         "NY": {
-//           fill: "#CC0000"
-//         }
-//       };  
-//     };                                                                            
- 
-//   render() {
-//     return (
-      
-//     <div>
-//       <Container fluid>
-//           <Row>
-//             <Col size="md-2">
-//               <SubMenu />
-//             </Col>
-//             <Col size ="md-10">
-//               <Navbar />
-//               <input
-//                   onChange={this.handleInputChange}
-//                   value={this.state.date}
-//                   name="date"
-//                   type="date"
-//                   className="form-control"
-//                   placeholder="date"
-//                   id="date"
-//               />
-//   -           <Row>
-//                 <Col size ="md-10">
-//                   <USAMap onClick={this.mapHandler} />
-//                 </Col>
-
-//                 <Col size="md-2">
-//                   {this.state.results.map(result => (
-//                   <Card 
-//                       title = {result.region.province}
-//                       // date = {result.date}
-//                       active = {result.active}
-//                       recovered = {result.recovered}
-//                       confirmed = {result.confirmed}
-//                       deaths = {result.deaths}
-//                   >
-//                   </Card>
-//                   ))}
-//                 </Col>
-
-//               </Row>
-//             </Col>
-//           </Row>
-//         </Container>
-//       </div>
-
-
-  
-  //     <div className= "row" style= {{padding: "20px 20px"}}>
-
-  //       <input
-  //         onChange={this.handleInputChange}
-  //         value={this.state.date}
-  //         name="date"
-  //         type="date"
-  //         className="form-control"
-  //         placeholder="date"
-  //         id="date"
-  //       />
-  // -
-  //       <div className = "map col-md-8 mt-3">
-        
-  //         <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
-
-  //       </div>
-
-  //       <div className = "col-md-3 mt-5 ">
-  //         {this.state.results.map(result => (
-  //         <Card 
-  //             title = {result.region.province}
-  //             // date = {result.date}
-  //             active = {result.active}
-  //             recovered = {result.recovered}
-  //             confirmed = {result.confirmed}
-  //             deaths = {result.deaths}
-  //         >
-  //         </Card>
-  //         ))}
-        
-  //       </div>
-    // </div>
     );
 }
  

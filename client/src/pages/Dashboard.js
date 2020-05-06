@@ -432,7 +432,6 @@ const amountDueBarOptions = {
         </Row>
       </Container>
     </div>
-    
   );
   
 }
