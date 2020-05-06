@@ -42,7 +42,7 @@ function Sidebar() {
 
                 {/* </button> */}
                 </div>
-                <button className = "btn btn-info mt-3"><i className="fas fa-chart-bar"></i>  Dashboard
+                <button className = "btn btn-info mt-3"><i className="fas fa-plus"></i>  Add to Favorites
                 </button>
                 <ul className="navbar-nav">
                     

@@ -22,12 +22,13 @@ function Dashboard() {
 
 useEffect(() => { 
    var country = "usa";
-   getStats(country);
+   
    
    API.search(country).then(res => {
      
      setCases(res.data.response[0].cases);
      setDeath(res.data.response[0].deaths);
+     getStats(country);
      
    })
    },[]);
@@ -99,19 +100,19 @@ useEffect(() => {
     datasets: [{
         label: 'Death',
         data: deathStats,
-        backgroundColor: '#577F9F',
+        backgroundColor: '#transparent',
         borderColor: '#0c83e2',
-        borderWidth: 1,
-        fill: true,
+        // borderWidth: 1,
+        // fill: true,
         datasetKeyProvider: "key1"
       },
       {
         label: 'Recovered',
         data: recoveryStats,
-        backgroundColor: '#19d895',
+        backgroundColor: 'transparent',
         borderColor: '#15b67d',
-        borderWidth: 1,
-        fill: true,
+        // borderWidth: 1,
+        // fill: true,
         datasetKeyProvider: "key2"
       }
     ]
@@ -123,7 +124,7 @@ useEffect(() => {
     scales: {
       yAxes: [{
         gridLines: {
-          color: "#F2F6F9"
+          color: "tranparent"
         },
         ticks: {
           beginAtZero: true,
@@ -134,7 +135,7 @@ useEffect(() => {
       }],
       xAxes: [{
         gridLines: {
-          color: "#F2F6F9"
+          color: "transparent"
         },
         ticks: {
           beginAtZero: true
@@ -257,13 +258,13 @@ const amountDueBarOptions = {
     {/* style= {{backgroundColor: "#577F9F"}}  */}
       <Container fluid>
         <Row>
-          <Col size="md-2">
+          <Col size="md-2 lg-2">
             <SubMenu />
           </Col>
-          <Col size ="md-10">
+          <Col size ="md-10 lg-10">
             <Navbar />
   
-            <div className= "container" style= {{padding: "20px 20px"}}> 
+            <div className= "container col-lg-10" style= {{padding: "20px 20px"}}> 
 
               <SearchForm
                 search= {search}
