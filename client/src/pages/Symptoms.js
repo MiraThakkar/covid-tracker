@@ -4,6 +4,7 @@ import SubMenu from "../components/SubMenu";
 import { Col, Row, Container } from "../components/Grid";
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import ReactPlayer from "../components/ReactPlayer";
 
 
 
@@ -31,7 +32,19 @@ function Symptoms () {
             marginTop: "10px"
 
           };
-         
+    
+    const style2 ={
+        color: "#5ba7aa",
+        textAlign: "left",
+        marginLeft: "10px"
+    };
+    
+    const style3 ={
+        color: "#949494",
+        textAlign: "left",
+        marginLeft: "10px"
+    };
+
     const squarestyle = {
            
             
@@ -58,6 +71,44 @@ function Symptoms () {
 
                     <Col size ="md-10">
                         <Navbar />
+
+                        <div>
+                            <h1 style ={style2}> <i className="fas fa-user-md"></i> Watch for symptoms</h1>
+                            <p style ={style3}>
+                                <h4>Usually sypmtoms will appear 2-14 days after exposure to COVID-19.</h4>
+                                <li>Cough</li>
+                                <li>Shortness of breath or difficulty breathing</li>
+                                <li>Fever</li>
+                                <li>Chills</li>
+                                <li>Repeated shaking with chills</li>
+                                <li>Muscle pain</li>
+                                <li>Headache</li>
+                                <li>Sore throat</li>
+                                <li>New loss of taste or smell</li>
+                            </p>                            
+
+                            <h1 style ={style2}><i className="fas fa-prescription"></i> How to protect yourself and others</h1>
+                            <p style ={style3}>
+                                <h4>Best way to prevent any illness is to not be near where it is exposed.</h4>
+                                <ol>
+                                    <li><b>STAY at HOME if possible.</b></li>
+                                    <li>Properly wash your hands! Wash hands with warm water and soap for <b>at least 20 seconds</b> as often as possible.Especially after being in the public or touching surfaces or coughing and sneezing.</li>
+                                    <li>If you can't wash your hands, use hand sanitizer with <b> at least 60% alcohol.</b></li>
+                                    <li>Practice social distancing. <b>Stay at least 6-feet away from one another.</b> Avoid big crowds and gatherings.</li>
+                                    <li><b>Avoid</b> touching surfaces without disenfecting or cleaning the area up.</li>
+                                    <li><b>Avoid</b> the touching the face or rubbing the eyes.</li>
+                                    <li>Wear a mask or cloth to cover the nose and mouth.</li>
+                                    <li>Cough or sneeze in a sleeve. Throw away used tissues and remember to wash hands as well.</li>
+                                    <li><b>Clean AND disinfect</b> frequently touched surfaces daily. Such as tables, doorknobs, light switches, countertops, handles, desks, phones, keyboards, toilets, faucets, and sinks.</li>
+                                </ol>
+                            </p>
+                        </div>
+
+                        <div style= {div}>
+                            <h2 style= {style}><i className="fas fa-user-nurse"></i> How to make a face mask</h2>
+                            <ul style={squarestyle}><ReactPlayer /></ul>
+                        </div>
+
                         <div style= {div}>
                             <h2 style= {style}>Do you have any of the following symptoms below?</h2>
                             <h6> Select all that apply</h6>
