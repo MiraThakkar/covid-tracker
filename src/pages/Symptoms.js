@@ -17,6 +17,10 @@ function Symptoms () {
     //     this.setState({checkMe: event.target.checked});
     //     console.log ("called");
     // };
+    const div= {
+        marginLeft:"20%",
+        marginRight: "20%"
+    }
     const style = {
             color: "#f5f5f4",
             padding: "15px",
@@ -30,12 +34,11 @@ function Symptoms () {
          
     const squarestyle = {
            
-            paddingleft: "16px",
+            
             paddingtop: "16px",
             paddingBottom: "16px",
-            paddingRight: "16px",
-            boxShadow: "none",
-            borderRadius: "8px",
+           
+           
             border: "1px solid #dadce0",
             justifyContent: 'center'
         //     flex: "1",
@@ -55,7 +58,7 @@ function Symptoms () {
 
                     <Col size ="md-10">
                         <Navbar />
-                        <div>
+                        <div style= {div}>
                             <h2 style= {style}>Do you have any of the following symptoms below?</h2>
                             <h6> Select all that apply</h6>
                                 
@@ -91,7 +94,7 @@ function Symptoms () {
 
                                 <div className= "square" style ={squarestyle}>
                                     <Form.Group controlId="formBasicCheckbox">
-                                        <Form.Check type="checkbox" label="Shortness of breathe or difficulty of breathing (nonservere)" />
+                                        <Form.Check type="checkbox" label="Shortness of breathe/difficulty breathing " />
                                     </Form.Group>
                                 </div>
 
