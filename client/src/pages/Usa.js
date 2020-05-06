@@ -1,9 +1,14 @@
-import React, { Component } from 'react';
+// import React from 'react';
+import React, { useState, useEffect } from "react";
 // import './App.css'; /* optional for styling like the :hover pseudo-class */
 import USAMap from "react-usa-map";
-import { Line, Doughnut, Bar } from 'react-chartjs-2';
+// import { Line, Doughnut, Bar } from 'react-chartjs-2';
 import API from "../utils/API";
-import Card from "../components/Card"
+import Navbar from "../components/Navbar";
+import SubMenu from "../components/SubMenu";
+import { Col, Row, Container } from "../components/Grid";
+import Card from "../components/Card";
+import Moment from "moment";
  
 const states = {'Alabama':'AL',
 'Alaska':'AK',
@@ -56,106 +61,311 @@ const states = {'Alabama':'AL',
 'Wisconsin':'WI',
 'Wyoming':'WY'
 };
-class Map extends Component {
+function Map (){
 
-  state = {
-        stateName: "",
-        date: "",
-        results: [],
+  const [state, setState] = useState("");
+  const [date, setDate] = useState("");
+ const [result, setResult] = useState({});
 
-      };
+
+ useEffect(() => { 
+   let state = "Connecticut";
+   let date = Moment(new Date()).subtract(1, "days").format("YYYY-MM-DD");
+   searchByState(state, date);
+   
   
-  getKeyByValue = (object, value)  => { 
+  },[]);
+  
+  function getKeyByValue (object, value)  { 
     return Object.keys(object).find(key => object[key] === value);
     
    }
-  // componentDidMount() {
-  //   this.searchByCountry(this.search);
-  // }
-  searchByState = (query, searchDate) => {
+  
+  function searchByState (query, searchDate) {
     //console.log(query)
     console.log(query);
     console.log(searchDate);
     API.searchState(query, searchDate)
-    // .then(res => this.setState({ results: res.data.response}))//??
-    // // .then(res => this.setState({ results: res.response }))
     .then(
       res => {
         console.log(res);
-        this.setState({ results: res.data });
-        console.log(this.state.results[0]);
+        setResult(res);
+        console.log(result);
       }
     )
     .catch(err => console.log(err));
   };
 
-    handleInputChange = event => {
-      const name = event.target.name;
-      const value = event.target.value;
-      this.setState({
-        [name]: value
-      });
-    };
+ function handleInputChange (event) {
+    // const name = event.target.name;
+    const value = event.target.value;
+    setDate(
+       value
+    );
+  };
     
   /* mandatory */
-    mapHandler = async (event) => {
-      const value = this.getKeyByValue (states, event.target.dataset.name );
-      await this.setState({stateName: value});
+  async function mapHandler (event) {
+      const value = await getKeyByValue (states, event.target.dataset.name);
+       setState(value);
+      console.log(state);
       // alert(this.state.stateName);
-      this.searchByState(this.state.stateName, this.state.date);
+      searchByState(value, date);
       
     };
  
   /* optional customization of filling per state and calling custom callbacks per state */
-    statesCustomConfig = () => {
+   function statesCustomConfig () {
       return {
         "CT": {
           fill: "navy",
-          clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
+          // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
         },
         "NY": {
           fill: "#CC0000"
         }
-      };
-    };
+      };  
+    };                                                                            
  
-  render() {
     return (
-      <div className= "row" style= {{padding: "20px 20px"}}>
-
-      <input
-        onChange={this.handleInputChange}
-        value={this.state.date}
-        name="date"
-        type="date"
-        className="form-control"
-        placeholder="date"
-        id="date"
-      />
--
-      <div className = "map col-md-8 mt-3">
       
-        <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
+    <div>
+      <Container fluid>
+          <Row>
+            <Col size="md-2">
+              <SubMenu />
+            </Col>
+            <Col size ="md-10">
+              <Navbar />
+              <input
+                  onChange={handleInputChange}
+                  value={date}
+                  name="date"
+                  type="date"
+                  className="form-control"
+                  placeholder="date"
+                  id="date"
+              />
+  -           <Row>
+                <Col size ="md-10">
+                  <USAMap onClick={mapHandler} />
+                </Col>
 
+                <Col size="md-2">
+                  {result.region && 
+                  <Card 
+                      title = {result.region.province}
+                      // date = {result.date}
+                      active = {result.active}
+                      recovered = {result.recovered}
+                      confirmed = {result.confirmed}
+                      deaths = {result.deaths}
+                      className = "stateCard"
+                  >
+                  </Card>}
+                </Col>
+
+              </Row>
+            </Col>
+          </Row>
+        </Container>
       </div>
 
-      <div className = "col-md-3 mt-5 ">
-        {this.state.results.map(result => (
-        <Card 
-            title = {result.region.province}
-            // date = {result.date}
-            active = {result.active}
-            recovered = {result.recovered}
-            confirmed = {result.confirmed}
-            deaths = {result.deaths}
-        >
-        </Card>
-        ))}
+// const states = {'Alabama':'AL',
+// 'Alaska':'AK',
+// 'Arizona':'AZ',
+// 'Arkansas':'AR',
+// 'California':'CA',
+// 'Colorado':'CO',
+// 'Connecticut':'CT',
+// 'Delaware':'DE',
+// 'Florida':'FL',
+// 'Georgia':'GA',
+// 'Hawaii':'HI',
+// 'Idaho':'ID',
+// 'Illinois':'IL',
+// 'Indiana':'IN',
+// 'Iowa':'IA',
+// 'Kansas':'KS',
+// 'Kentucky':'KY',
+// 'Louisiana':'LA',
+// 'Maine':'ME',
+// 'Maryland':'MD',
+// 'Massachusetts':'MA',
+// 'Michigan':'MI',
+// 'Minnesota':'MN',
+// 'Mississippi':'MS',
+// 'Missouri':'MO',
+// 'Montana':'MT',
+// 'Nebraska':'NE',
+// 'Nevada':'NV',
+// 'New Hampshire':'NH',
+// 'New Jersey':'NJ',
+// 'New Mexico':'NM',
+// 'New York':'NY',
+// 'North Carolina':'NC',
+// 'North Dakota':'ND',
+// 'Ohio':'OH',
+// 'Oklahoma':'OK',
+// 'Oregon':'OR',
+// 'Pennsylvania':'PA',
+// 'Rhode Island':'RI',
+// 'South Carolina':'SC',
+// 'South Dakota':'SD',
+// 'Tennessee':'TN',
+// 'Texas':'TX',
+// 'Utah':'UT',
+// 'Vermont':'VT',
+// 'Virginia':'VA',
+// 'Washington':'WA',
+// 'West Virginia':'WV',
+// 'Wisconsin':'WI',
+// 'Wyoming':'WY'
+// };
+// class Map extends Component {
+
+//   state = {
+//         stateName: "",
+//         date: "",
+//         results: [],
+
+//       };
+  
+//   getKeyByValue = (object, value)  => { 
+//     return Object.keys(object).find(key => object[key] === value);
+    
+//    }
+//   // componentDidMount() {
+//   //   this.searchByCountry(this.search);
+//   // }
+//   searchByState = (query, searchDate) => {
+//     //console.log(query)
+//     console.log(query);
+//     console.log(searchDate);
+//     API.searchState(query, searchDate)
+//     // .then(res => this.setState({ results: res.data.response}))//??
+//     // // .then(res => this.setState({ results: res.response }))
+//     .then(
+//       res => {
+//         console.log(res);
+//         this.setState({ results: res.data });
+//         console.log(this.state.results[0]);
+//       }
+//     )
+//     .catch(err => console.log(err));
+//   };
+
+//   handleInputChange = event => {
+//     const name = event.target.name;
+//     const value = event.target.value;
+//     this.setState({
+//       [name]: value
+//     });
+//   };
+    
+//   /* mandatory */
+//     mapHandler = async (event) => {
+//       const value = this.getKeyByValue (states, event.target.dataset.name );
+//       await this.setState({stateName: value});
+//       // alert(this.state.stateName);
+//       this.searchByState(this.state.stateName, this.state.date);
       
-      </div>
-    </div>
+//     };
+ 
+//   /* optional customization of filling per state and calling custom callbacks per state */
+//     statesCustomConfig = () => {
+//       return {
+//         "CT": {
+//           fill: "navy",
+//           // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
+//         },
+//         "NY": {
+//           fill: "#CC0000"
+//         }
+//       };  
+//     };                                                                            
+ 
+//   render() {
+//     return (
+      
+//     <div>
+//       <Container fluid>
+//           <Row>
+//             <Col size="md-2">
+//               <SubMenu />
+//             </Col>
+//             <Col size ="md-10">
+//               <Navbar />
+//               <input
+//                   onChange={this.handleInputChange}
+//                   value={this.state.date}
+//                   name="date"
+//                   type="date"
+//                   className="form-control"
+//                   placeholder="date"
+//                   id="date"
+//               />
+//   -           <Row>
+//                 <Col size ="md-10">
+//                   <USAMap onClick={this.mapHandler} />
+//                 </Col>
+
+//                 <Col size="md-2">
+//                   {this.state.results.map(result => (
+//                   <Card 
+//                       title = {result.region.province}
+//                       // date = {result.date}
+//                       active = {result.active}
+//                       recovered = {result.recovered}
+//                       confirmed = {result.confirmed}
+//                       deaths = {result.deaths}
+//                   >
+//                   </Card>
+//                   ))}
+//                 </Col>
+
+//               </Row>
+//             </Col>
+//           </Row>
+//         </Container>
+//       </div>
+
+
+  
+  //     <div className= "row" style= {{padding: "20px 20px"}}>
+
+  //       <input
+  //         onChange={this.handleInputChange}
+  //         value={this.state.date}
+  //         name="date"
+  //         type="date"
+  //         className="form-control"
+  //         placeholder="date"
+  //         id="date"
+  //       />
+  // -
+  //       <div className = "map col-md-8 mt-3">
+        
+  //         <USAMap customize={this.statesCustomConfig()} onClick={this.mapHandler} />
+
+  //       </div>
+
+  //       <div className = "col-md-3 mt-5 ">
+  //         {this.state.results.map(result => (
+  //         <Card 
+  //             title = {result.region.province}
+  //             // date = {result.date}
+  //             active = {result.active}
+  //             recovered = {result.recovered}
+  //             confirmed = {result.confirmed}
+  //             deaths = {result.deaths}
+  //         >
+  //         </Card>
+  //         ))}
+        
+  //       </div>
+    // </div>
     );
-  }
 }
  
 export default Map;
