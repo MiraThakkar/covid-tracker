@@ -4,7 +4,7 @@ function Card (prop){
     const styles = { card: {width: "14rem"}}
     return (
         <div>
-            <div className="card" style = {styles.card}>
+            <div className="card card-state" style = {styles.card}>
             <div className="card-header">
                 {prop.title}
             </div>

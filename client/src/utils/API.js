@@ -11,7 +11,8 @@ export default {
         "x-rapidapi-host":"covid-193.p.rapidapi.com",
         "x-rapidapi-key":"65540442ebmsh5825c6f7e1a9604p139457jsn2008a79824c1"
         },
-        "params":{
+        "params":
+        { 
         "country":query}
         })
         .then((response)=>{
@@ -69,25 +70,32 @@ return axios({
   })
 },
 ///////////////////////////////
-  stats: function () {
-    return axios({
-        "method":"GET",
-        "url":"https://covid-193.p.rapidapi.com/statistics",
-        //"url":"https://covid-193.p.rapidapi.com/countries",
-        // "url":"https://covid-193.p.rapidapi.com/countries",
-        "headers":{
-        "content-type":"application/octet-stream",
-        "x-rapidapi-host":"covid-193.p.rapidapi.com",
-        "x-rapidapi-key":"65540442ebmsh5825c6f7e1a9604p139457jsn2008a79824c1"
+searchStats: function (date, query) {
+  return axios({
+      "method":"GET",
+      "url":"https://covid-193.p.rapidapi.com/history",
+      //"url":"https://covid-193.p.rapidapi.com/countries",
+      // "url":"https://covid-193.p.rapidapi.com/countries",
+      "headers":{
+      "content-type":"application/octet-stream",
+      "x-rapidapi-host":"covid-193.p.rapidapi.com",
+      "x-rapidapi-key":"65540442ebmsh5825c6f7e1a9604p139457jsn2008a79824c1"
+      },
+      "params":
+        
+        { 
+          
+          "day": date,
+          "country":query
         }
-        })
-        .then((response)=>{
-          // console.log(response);
-          return response;
-        })
-        .catch((error)=>{
-          console.log(error)
-        })
-    }
+      })
+      .then((response)=>{
+        // console.log(response);
+        return response;
+      })
+      .catch((error)=>{
+        console.log(error)
+      })
+    },
 };
   // export default search;
