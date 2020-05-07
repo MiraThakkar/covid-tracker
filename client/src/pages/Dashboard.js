@@ -309,8 +309,7 @@ const amountDueBarOptions = {
                           </div>
                         </div>
                       </div>
-                      <p className="text-muted mt-3 mb-0">
-                        <i className="mdi mdi-alert-octagon mr-1" aria-hidden="true"></i> 12% growth </p>
+                      <p className="text-muted mt-3 mb-0"><i className="fas fa-users fa-3x" aria-hidden="true"></i> 12% growth </p>
                     </div>
                   </div>
                 </div>
@@ -328,7 +327,7 @@ const amountDueBarOptions = {
                           </div>
                         </div>
                       </div>
-                      <p className="text-muted mt-3 mb-0"> Place Holder </p>
+                      <p className="text-muted mt-3 mb-0"> <i className="fas fa-chart-line fa-3x" aria-hidden="true"></i>12% growth</p>
                     </div>
                   </div>
                 </div>
@@ -347,7 +346,7 @@ const amountDueBarOptions = {
                         </div>
                       </div>
                       <p className="text-muted mt-3 mb-0">
-                        <i className="mdi mdi-calendar mr-1" aria-hidden="true"></i>  Place Holder </p>
+                        <i className="fas fa-file-medical-alt fa-3x" aria-hidden="true"></i> {parseInt(100*cases.recovered/cases.total)}% Recovered</p>
                     </div>
                   </div>
                 </div>
@@ -366,7 +365,7 @@ const amountDueBarOptions = {
                         </div>
                       </div>
                       <p className="text-muted mt-3 mb-0">
-                        <i className="mdi mdi-reload mr-1" aria-hidden="true"></i> Place Holder </p>
+                        <i className="fas fa-viruses fa-3x" size = "36px" aria-hidden="true"></i> </p>
                     </div>
                   </div>
                 </div>

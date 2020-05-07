@@ -7,9 +7,10 @@ import CoronaVirus from "../../assets/images/Coronavirus.png";
 
 function Sidebar() {
 
+
     return(
 
-        <div className="sidebar-wrapper">
+        <div className="sidebar-wrapper ">
 
             <nav id="sidebar">
                 <div className="sidebar-header">
