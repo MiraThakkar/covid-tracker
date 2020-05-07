@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState, useEffect, useRef} from "react";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
@@ -8,6 +9,7 @@ import SubMenu from "../components/SubMenu";
 import { Col, Row, Container } from "../components/Grid";
 import Moment from "moment";
 import _ from "lodash";
+import { Query } from "mongoose";
 
 const sendQuery = query => console.log(`Querying for ${query}`);
 
@@ -21,37 +23,63 @@ function Dashboard() {
  const [deathStats, setDeathStats] = useState([]);
  const [recoveryStats, setRecoveryStats] = useState([]);
  
+ 
+ 
  const delayedQuery = useRef(_.debounce(q => sendQuery(q), 500)).current;
  
 
 useEffect(() => { 
+  const runEffect = async () => {
+
+  
    var country = "usa";
-   API.search(country).then(res => {
-     setCases(res.data.response[0].cases);
+   //* For Donut chart input
+    API.search(country).then(res => {
+      setCases(res.data.response[0].cases);
      setDeath(res.data.response[0].deaths);
    })
-   },[]);
+  
+   //* for 7 Day trend input   
+  var statArray = [];
+  var recoveredArray = [];
+  var deathArray = [];
+  
+  for(var i=6; i>=0; i--) {
+    var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+    const apiData = await API.searchStats(date, "usa");
+    const result =  apiData.data.response[0].cases;
+    const deathResult = apiData.data.response[0].deaths;      
+    statArray.push(result.new);
+    recoveredArray.push(result.recovered);
+    deathArray.push(deathResult.total);
+    console.log(statArray);
+  }  
+  setStats(statArray);  
+  setDeathStats(deathArray);
+  setRecoveryStats(recoveredArray);        
+};
+runEffect();  
+},[setStats, setDeathStats, setRecoveryStats]);
 
-
-   async function getStats(value) {
-    console.log("inside getStats");
-    var statArray = []
-    // var query = value;
-    var i;
-    if(value) {
-      for(i=7; i>0; i--) {
-        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-        await API.searchStats(date, value).then(res => {
-        const result =  res.data.response[0].cases; //new    
-        statArray.push(result.new);
-        })
-         setStats(statArray);
-      }
-    } 
-    else {
-        setStats(stats);
-    }      
-  };
+  // function getStats(value) {
+  //   console.log("inside getStats");
+  //   var statArray = []
+  //   // var query = value;
+  //   var i;
+  //   if(value) {
+  //     for(i=6; i>=0; i--) {
+  //       var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+  //       API.searchStats(date, value).then(res => {
+  //       const result =  res.data.response[0].cases; //new    
+  //       statArray.push(result.new);
+  //       })
+  //        setStats(statArray);
+  //     } 
+  //   } 
+  //   // else {
+  //   //     setStats(stats);
+  //   // }      
+  // };
 
   //Handles updating search component state when the user types/selects the country input field
   function handleInputChange (event) {
@@ -62,63 +90,72 @@ useEffect(() => {
   
     
 
-  function handleFormSubmit(event) {
+ async function handleFormSubmit(event) {
     
     event.preventDefault();
-    
     if(search){
-      API.search(search)
+     await API.search(search)
       .then(res => {
         setCases(res.data.response[0].cases);
-        setDeath(res.data.response[0].deaths);
-        getStats(search);
-         
-      }).catch(err => console.log(err))
+        setDeath(res.data.response[0].deaths); 
+        //
+        var statArray = []
+        // var query = value;
+        var i;       
+        for(i=6; i>=0; i--) {
+          var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+          API.searchStats(date, search).then(res => {
+          const result =  res.data.response[0].cases; //new    
+          statArray.push(result.new);
+          })
+          setStats(statArray);
+        }  
+        //        
+      })
+      .catch(err => console.log(err))
     } else {
       setCases(cases);
-      // setDeath(deaths);
-      // getStats("usa");
+  
     }
   };
 
 
   
 
-   async function getStats(value) {
-    console.log("inside getStats");
-    var statArray = [];
-    var recoveredArray = [];
-    var deathArray = []
-    // var query = value;
-    var i;
-    if(value) {
-      for(i=7; i>0; i--) {
-        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-        API.searchStats(date, value).then(res => {
-        const result =  res.data.response[0].cases; //new  
-        const deathResult = res.data.response[0].deaths;    
-        statArray.push(result.new);
-        recoveredArray.push(result.recovered);
-        deathArray.push(deathResult.total)
-        })
-        await setStats(statArray);
-        await setDeathStats(deathArray);
-        await setRecoveryStats(recoveredArray);
-      }
-    } 
-    else {
-        setStats(stats);
-        setDeathStats(deathStats);
-        setRecoveryStats(recoveryStats);
-    }      
-  };
+  //  async function getStats(value) {
+  //   console.log("inside getStats");
+  //   var statArray = [];
+  //   var recoveredArray = [];
+  //   var deathArray = []
+  //   // var query = value;
+  //   var i;
+  //   if(value) {
+  //     for(i=7; i>0; i--) {
+  //       var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+  //       API.searchStats(date, value).then(res => {
+  //       const result =  res.data.response[0].cases; //new  
+  //       const deathResult = res.data.response[0].deaths;    
+  //       statArray.push(result.new);
+  //       recoveredArray.push(result.recovered);
+  //       deathArray.push(deathResult.total)
+  //       })
+  //       await setStats(statArray);
+  //       await setDeathStats(deathArray);
+  //       await setRecoveryStats(recoveredArray);
+  //     }
+  //   } 
+  //   else {
+  //       setStats(stats);
+  //       setDeathStats(deathStats);
+  //       setRecoveryStats(recoveryStats);
+  //   }      
+  // };
 
-  console.log("Stats: ", recoveryStats);
-  // setStats(res.data.response[0].cases);
+  
   
 
   const areaData = {
-    labels: ["0", "1", "2", "3", "4", "5", "6"],
+    labels: ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"],
     datasets: [{
         label: 'Death',
         data: deathStats,
@@ -151,8 +188,8 @@ useEffect(() => {
         ticks: {
           beginAtZero: true,
           min: 0,
-          max: 200000,
-          stepSize: 25000,
+          max: 250000,
+          stepSize: 25000
         }
       }],
       xAxes: [{
@@ -438,12 +475,12 @@ const amountDueBarOptions = {
                       <div className="col-md-7">
                         <h4 className="card-title font-weight-medium mb-3"> 7 Days Trend </h4>
                         <h1 className="font-weight-medium mb-0 text-dark">New Cases</h1>
-                        <p className="text-muted">Place Holder</p>
-                        <p className="mb-0">Place Holder</p>
+                        {/* <p className="text-muted">Place Holder</p>
+                        <p className="mb-0">Place Holder</p> */}
                       </div>
                       
                       <div className="col-md-5 d-flex align-items-end mt-4 mt-md-0">
-                      {amountDueBarData && 
+                      {stats && 
                         <Bar data={amountDueBarData} options={amountDueBarOptions} />    }
                       </div>
                     </div>
@@ -457,7 +494,7 @@ const amountDueBarOptions = {
                   <div className="card">
                     <div className="card-body"  style= {{backgroundColor: "#c4d3f2"}}>
                       <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="card-title mb-0">Tracker</h2>
+                        <h2 className="card-title mb-0"></h2>
                         <div className="wrapper d-flex">
                           <div className="d-flex align-items-center mr-3">
                             <span className="dot-indicator bg-success"></span>
