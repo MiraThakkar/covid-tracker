@@ -5,9 +5,11 @@
   "main": "server.js",
   "private": true,
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "express": "^4.16.3",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.11"
+    "mongoose": "^5.9.11",
+    "react-player": "^2.0.1"
   },
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
