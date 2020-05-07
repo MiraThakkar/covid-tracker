@@ -370,7 +370,7 @@ const amountDueBarOptions = {
                   </div>
                 </div>
               </div>
-              <div className="row"> 
+              {/* <div className="row"> 
                 <div className="col-md-12 grid-margin">
                   <div className="card">
                     <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
@@ -393,7 +393,7 @@ const amountDueBarOptions = {
                     </div>
                   </div>
                 </div>
-              </div>
+              </div> */}
       
               <div className="row">
 
@@ -455,7 +455,7 @@ const amountDueBarOptions = {
               <div className="row">
                 <div className="col-md-12 grid-margin">
                   <div className="card">
-                    <div className="card-body">
+                    <div className="card-body"  style= {{backgroundColor: "#c4d3f2"}}>
                       <div className="d-flex justify-content-between align-items-center mb-4">
                         <h2 className="card-title mb-0">Tracker</h2>
                         <div className="wrapper d-flex">
