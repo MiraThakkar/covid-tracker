@@ -15,7 +15,7 @@ function Sidebar() {
                 <div className="sidebar-header">
 
                 <Link className="navbar-brand" Link to ='/home'>
-                    <img className= "image" src={CoronaVirus}/>
+                    <img className= "image" src={CoronaVirus} alt =  ""/>
                     ViD-APP</Link>
 
                 

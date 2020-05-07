@@ -30,6 +30,7 @@ export default class SignUp extends Component {
             password: this.state.password
         })
           .then(function (response) {
+            window.location.replace("/home");
             console.log(response);
           })
           .catch(function (error) {
