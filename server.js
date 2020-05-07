@@ -1,10 +1,12 @@
 const express = require("express");
 //const logger = require("morgan");
+var session = require("express-session");
 const mongoose = require("mongoose");
 
 const PORT = process.env.PORT || 3001;
 
 const routes = require("./routes");
+const passport = require("./controllers/passport");
 //const User = require("./models/user.js");
 const app = express();
 
@@ -18,6 +20,9 @@ if (process.env.NODE_ENV === "production") {
 }
 // Add routes, both API and view
 app.use(routes);
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 // // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/trackerDB");
 

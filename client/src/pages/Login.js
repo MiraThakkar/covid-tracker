@@ -1,7 +1,39 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Login ()  {
+
+export default class Login extends Component {
+
+    state = {
+        email: "",
+        password: ""
+    };
+
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+          [name]: value
+        });
+      };
+
+      handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("Senting post request")
+        return axios.post('/api/users/login', {
+            email: this.state.email,
+            password: this.state.password
+        })
+          .then(function (response) {
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        
+      };
+
+reder ()  {
     const mystyle = {
         color: "white",
         backgroundColor: "DodgerBlue",
@@ -25,12 +57,22 @@ function Login ()  {
 
                     <div className="form-group">
                         <label>Email address</label>
-                        <input type="email" className="form-control" placeholder="Enter email" />
+                        <input type="email" className="form-control" 
+                        placeholder="Enter email"
+                        onChange={this.handleInputChange}
+                        value={this.state.email}
+                        name="email"
+                         />
                     </div>
 
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" placeholder="Enter password" />
+                        <input type="password" className="form-control" 
+                        placeholder="Enter password"
+                        onChange={this.handleInputChange}
+                        value={this.state.password}
+                        name="password"
+                         />
                     </div>
 
                     <div className="form-group">
@@ -40,7 +82,9 @@ function Login ()  {
                         </div>
                     </div>
 
-                    <button type="submit" className="btn btn-primary btn-block">Submit</button>
+                    <button onClick={this.handleFormSubmit} id="login"
+                    type="submit" className="btn btn-primary btn-block"
+                    >Submit</button>
                     <p className="forgot-password text-right">
                          <Link to="/ResetPassword"> Forgot Password?</Link>
                     </p>
@@ -48,5 +92,6 @@ function Login ()  {
         </div>
         );
     }
+};
 
 export default Login;
