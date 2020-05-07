@@ -54,9 +54,6 @@ function Navbar() {
                    Change Password 
                   </Dropdown.Item>
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
-                    Check Inbox
-                  </Dropdown.Item>
-                  <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
                     Sign Out
                   </Dropdown.Item>
                 </Dropdown.Menu>
