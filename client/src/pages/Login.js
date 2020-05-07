@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import nature from "../assets/images/nature.jpg";
+import { Container } from "../components/Grid";
 
 function Login ()  {
     const mystyle = {
@@ -16,11 +18,14 @@ function Login ()  {
         marginBottom: "5%"
       };
 
-    
+    const image= {
+        backgroundImage:`url(${nature})`,
+        height: "100%" 
+    }
         return (
-            <div>
-                
-                <form style= {mystyle} >
+            <div style ={image}>
+                <Container >
+                <form style= {mystyle}>
                     <h4>Sign In</h4>
 
                     <div className="form-group">
@@ -45,6 +50,7 @@ function Login ()  {
                          <Link to="/ResetPassword"> Forgot Password?</Link>
                     </p>
                 </form>
+                </Container>
         </div>
         );
     }

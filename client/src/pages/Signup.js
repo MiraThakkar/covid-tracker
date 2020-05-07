@@ -52,6 +52,7 @@ export default class SignUp extends Component {
             marginBottom: "5%"
           };
         
+        
         return (
             <div className= "signup">
                 <div style= {mystyle}>
