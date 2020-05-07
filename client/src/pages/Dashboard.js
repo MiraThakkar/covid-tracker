@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef} from "react";
 import SearchForm from "../components/SearchForm";
 import API from "../utils/API";
 import { Line, Doughnut, Bar } from 'react-chartjs-2';
@@ -7,7 +7,9 @@ import Navbar from "../components/Navbar";
 import SubMenu from "../components/SubMenu";
 import { Col, Row, Container } from "../components/Grid";
 import Moment from "moment";
+import _ from "lodash";
 
+const sendQuery = query => console.log(`Querying for ${query}`);
 
 function Dashboard() {
  // Setting our component's initial state
@@ -19,25 +21,44 @@ function Dashboard() {
  const [deathStats, setDeathStats] = useState([]);
  const [recoveryStats, setRecoveryStats] = useState([]);
  
+ const delayedQuery = useRef(_.debounce(q => sendQuery(q), 500)).current;
+ 
 
 useEffect(() => { 
    var country = "usa";
-   
-   
    API.search(country).then(res => {
-     
      setCases(res.data.response[0].cases);
      setDeath(res.data.response[0].deaths);
-     getStats(country);
-     
    })
    },[]);
 
+
+   async function getStats(value) {
+    console.log("inside getStats");
+    var statArray = []
+    // var query = value;
+    var i;
+    if(value) {
+      for(i=7; i>0; i--) {
+        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+        await API.searchStats(date, value).then(res => {
+        const result =  res.data.response[0].cases; //new    
+        statArray.push(result.new);
+        })
+         setStats(statArray);
+      }
+    } 
+    else {
+        setStats(stats);
+    }      
+  };
+
+  //Handles updating search component state when the user types/selects the country input field
   function handleInputChange (event) {
     const value = event.target.value;
     setSearch(value)
-    getStats(search);
-    }
+    delayedQuery(value);
+  }
   
     
 
@@ -46,42 +67,43 @@ useEffect(() => {
     event.preventDefault();
     
     if(search){
-      getStats(search);
       API.search(search)
       .then(res => {
-        
-        
         setCases(res.data.response[0].cases);
         setDeath(res.data.response[0].deaths);
-        
-        
+        getStats(search);
+         
       }).catch(err => console.log(err))
+    } else {
+      setCases(cases);
+      // setDeath(deaths);
+      // getStats("usa");
     }
   };
 
-  async function getStats(value) {
+
+  
+
+   async function getStats(value) {
     console.log("inside getStats");
     var statArray = [];
     var recoveredArray = [];
     var deathArray = []
-    var query = value;
+    // var query = value;
     var i;
-    if(query) {
-      for(i=7; i>=0; i--) {
-        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD")
-        API.searchStats(date, query).then(res => {
-        const result = res.data.response[0].cases;  
+    if(value) {
+      for(i=7; i>0; i--) {
+        var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
+        API.searchStats(date, value).then(res => {
+        const result =  res.data.response[0].cases; //new  
         const deathResult = res.data.response[0].deaths;    
         statArray.push(result.new);
         recoveredArray.push(result.recovered);
         deathArray.push(deathResult.total)
-        console.log(statArray);
-        console.log(recoveredArray);
-        console.log(deathArray);
         })
-        setStats(statArray);
-        setDeathStats(deathArray);
-        setRecoveryStats(recoveredArray);
+        await setStats(statArray);
+        await setDeathStats(deathArray);
+        await setRecoveryStats(recoveredArray);
       }
     } 
     else {
@@ -91,7 +113,7 @@ useEffect(() => {
     }      
   };
 
-  console.log("Stats: ", stats);
+  console.log("Stats: ", recoveryStats);
   // setStats(res.data.response[0].cases);
   
 
@@ -350,31 +372,6 @@ const amountDueBarOptions = {
                 </div>
               </div>
               <div className="row">
-                <div className="col-md-12 grid-margin">
-                  <div className="card">
-                    <div className="card-body">
-                      <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="card-title mb-0">Tracker</h2>
-                        <div className="wrapper d-flex">
-                          <div className="d-flex align-items-center mr-3">
-                            <span className="dot-indicator bg-success"></span>
-                            <p className="mb-0 ml-2 text-muted">Death</p>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <span className="dot-indicator bg-primary"></span>
-                            <p className="mb-0 ml-2 text-muted">Recovered</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="chart-container">
-                        <Line data={areaData} options={areaOptions} height={80} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-      
-              <div className="row">
               <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
                 <div className="card">
                   <div className="card-body">
@@ -419,14 +416,41 @@ const amountDueBarOptions = {
                         <p className="text-muted">Place Holder</p>
                         <p className="mb-0">Place Holder</p>
                       </div>
+                      
                       <div className="col-md-5 d-flex align-items-end mt-4 mt-md-0">
-                        <Bar data={amountDueBarData} options={amountDueBarOptions} />    
+                      {amountDueBarData && 
+                        <Bar data={amountDueBarData} options={amountDueBarOptions} />    }
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
+            
             </div>
+              <div className="row">
+                <div className="col-md-12 grid-margin">
+                  <div className="card">
+                    <div className="card-body">
+                      <div className="d-flex justify-content-between align-items-center mb-4">
+                        <h2 className="card-title mb-0">Tracker</h2>
+                        <div className="wrapper d-flex">
+                          <div className="d-flex align-items-center mr-3">
+                            <span className="dot-indicator bg-success"></span>
+                            <p className="mb-0 ml-2 text-muted">Death</p>
+                          </div>
+                          <div className="d-flex align-items-center">
+                            <span className="dot-indicator bg-primary"></span>
+                            <p className="mb-0 ml-2 text-muted">Recovered</p>
+                          </div>
+                        </div>
+                      </div>
+                      <div className="chart-container">
+                        <Line data={areaData} options={areaOptions} height={80} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div> 
             </div>
           </Col>
         </Row>

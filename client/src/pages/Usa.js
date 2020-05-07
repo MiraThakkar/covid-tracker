@@ -68,33 +68,49 @@ function Map (){
  const [result, setResult] = useState({});
 
 
+ //on page load page displays connecticut's latest covid data
+
  useEffect(() => { 
    let state = "Connecticut";
    let date = Moment(new Date()).subtract(1, "days").format("YYYY-MM-DD");
    searchByState(state, date);
    
-  
   },[]);
+
+
+
   
   function getKeyByValue (object, value)  { 
     return Object.keys(object).find(key => object[key] === value);
     
    }
   
+
   function searchByState (query, searchDate) {
     //console.log(query)
     console.log(query);
     console.log(searchDate);
-    API.searchState(query, searchDate)
-    .then(
-      res => {
-        console.log(res);
-        setResult(res);
-        console.log(result);
-      }
-    )
-    .catch(err => console.log(err));
+    if(query && searchDate){
+      API.searchState(query, searchDate)
+      .then(
+        res => {
+          console.log(res);
+          setResult(res);
+          console.log(result);
+        }
+
+      ).catch(err => console.log(err));
+    
+    }else {
+
+      setResult(result);
+
+    }
+  
+    
   };
+
+  // Handles updating component state when the user types/selects the date input field
 
  function handleInputChange (event) {
     // const name = event.target.name;
@@ -115,17 +131,24 @@ function Map (){
     };
  
   /* optional customization of filling per state and calling custom callbacks per state */
-  //  function statesCustomConfig () {
-  //     return {
-  //       "CT": {
-  //         fill: "navy",
-  //         // clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
-  //       },
-  //       "NY": {
-  //         fill: "#CC0000"
-  //       }
-  //     };  
-  //   };                                                                            
+   function statesCustomConfig () {
+  
+      return {
+        
+        "CT": {
+          fill: "navy"
+          //clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
+          
+        },
+        "NY": {
+          fill: "#db1515"
+        },
+        "FL": {
+          fill: "black",
+          clickHandler: (event) => console.log('Custom handler for CT', event.target.dataset)
+        }
+      };  
+    };                                                                            
  
     return (
       
@@ -135,36 +158,39 @@ function Map (){
             <Col size="md-2">
               <SubMenu />
             </Col>
-            <Col size ="md-10">
+            <Col size ="md-10 lg-10">
               <Navbar />
-              <input
-                  onChange={handleInputChange}
-                  value={date}
-                  name="date"
-                  type="date"
-                  className="form-control"
-                  placeholder="date"
-                  id="date"
-              />
-  -           <Row>
-                <Col size ="md-10">
-                  <USAMap onClick={mapHandler} />
-                </Col>
+              <div className= "container col-lg-10" style= {{padding: "20px 20px"}}> 
+                <input
+                    onChange={handleInputChange}
+                    value={date}
+                    name="date"
+                    type="date"
+                    className="form-control"
+                    placeholder="date"
+                    id="date"
+                    required
+                />
+    -           <Row>
+                  <Col size ="md-10">
+                    <USAMap onClick={mapHandler} customize = {statesCustomConfig()}/>
+                  </Col>
 
-                <Col size="md-2">
-                  {result.region && 
-                  <Card 
-                      title = {result.region.province}
-                      // date = {result.date}
-                      active = {result.active}
-                      recovered = {result.recovered}
-                      confirmed = {result.confirmed}
-                      deaths = {result.deaths}
-                      className = "stateCard"
-                  >
-                  </Card>}
-                </Col>
+                  <Col size="md-2">
+                    {result.region && 
+                    <Card 
+                        title = {result.region.province}
+                        // date = {result.date}
+                        active = {result.active}
+                        recovered = {result.recovered}
+                        confirmed = {result.confirmed}
+                        deaths = {result.deaths}
+                        className = "stateCard"
+                    >
+                    </Card>}
+                  </Col>
               </Row>
+            </div>
             </Col>
           </Row>
         </Container>
