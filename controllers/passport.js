@@ -1,4 +1,5 @@
 var passport = require("passport");
+const bcrypt = require ("bcryptjs");
 var LocalStrategy = require("passport-local").Strategy;
 
 var db = require("../models");
@@ -12,27 +13,34 @@ passport.use(new LocalStrategy(
   function(email, password, done) {
     // When a user tries to sign in this code runs
     db.User.findOne({email: email}
-    ).then(function(dbUser) {
+    ).then(function(user) {
       // If there's no user with the given email
-      if (!dbUser) {
+      console.log("found user:")
+      console.log(user)
+      if (!user) {
         return done(null, false, {
           message: "Incorrect email."
         });
       }
       // If there is a user with the given email, but the password the user gives us is incorrect
-      else if (!compareSync(password, user.password)) {
+      else if (!bcrypt.compareSync(password, user.password)) {
+        console.log("Password incorrect")
         return done(null, false, {
           message: "Incorrect password."
         });
       }
       // If none of the above, return the user
-      return done(null, dbUser);
+      console.log("success!")
+      //http://localhost:3000/Login
+      //res.redirect('localhost:3000');
+      return done(null, user);
+      //return user;
     });
   }
 ));
 
 // In order to help keep authentication state across HTTP requests,
-// Sequelize needs to serialize and deserialize the user
+// mogoose needs to serialize and deserialize the user
 // Just consider this part boilerplate needed to make it all work
 passport.serializeUser(function(user, cb) {
   cb(null, user);

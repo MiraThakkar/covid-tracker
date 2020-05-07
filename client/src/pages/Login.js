@@ -1,5 +1,7 @@
-import React from "react";
+//import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 
 export default class Login extends Component {
@@ -26,6 +28,8 @@ export default class Login extends Component {
         })
           .then(function (response) {
             console.log(response);
+            window.location.replace("/home");
+            //console.log(response);
           })
           .catch(function (error) {
             console.log(error);
@@ -33,7 +37,7 @@ export default class Login extends Component {
         
       };
 
-reder ()  {
+render ()  {
     const mystyle = {
         color: "white",
         backgroundColor: "DodgerBlue",
@@ -94,4 +98,4 @@ reder ()  {
     }
 };
 
-export default Login;
+//export default Login;

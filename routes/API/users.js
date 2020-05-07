@@ -1,11 +1,14 @@
 const router = require("express").Router();
 const passport = require("../../controllers/passport");
 const userController = require("../../controllers/userController");
+//router.use(passport.initialize())
 
-
-// Matches with "/api/users"
-router.route.post("/login", passport.authenticate("local"), function(req, res) {
-  res.json(req.user)});
+// Matches with "/api/users/login"
+router.route("/login").post(passport.authenticate("local"), function(req, res) {
+  console.log("Hiting login route")
+  console.log(res)
+  res.json()
+});
 
 console.log("Into users route")
 router.route("/submit")
