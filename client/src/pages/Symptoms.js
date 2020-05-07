@@ -118,7 +118,7 @@ function Symptoms () {
                                     type= "checkbox" 
                                     checked={this.state.checkMe}
                                     onChange= { this.handleCheck}
-                                    />*/}
+                                    />*/} 
 
                                 <div className= "square" style ={squarestyle}>
                                     <Form.Group>
