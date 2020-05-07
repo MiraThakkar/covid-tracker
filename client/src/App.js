@@ -6,7 +6,10 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import SignUp from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
-import usaForm from "./pages/Usa"
+import usaForm from "./pages/Usa";
+import Symptoms from "./pages/Symptoms";
+
+
 function App() {
   return (
     <div className="App">
@@ -17,6 +20,7 @@ function App() {
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
                 <Route exact path="/usaForm" component={usaForm} />
+                <Route exact path="/symptoms" component={Symptoms} />
                 <Route exact path="/Login" component={Login} />
                 <Route exact path="/Signup" component={SignUp} />
                 <Route exact path="/ResetPassword" component={ResetPassword} />

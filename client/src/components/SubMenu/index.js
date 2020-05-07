@@ -79,6 +79,18 @@ function Sidebar() {
                         </Link>
                     </li>
                     
+                    <li className="nav-item">
+                        <Link
+                            to="/symptoms"
+                            className={
+                            window.location.pathname === "/symptoms" || window.location.pathname === "/symptoms"
+                            ? "nav-link active"
+                            : "nav-link"
+                            }
+                        >
+                        <i className="fas fa-file-medical"></i> Symptoms
+                        </Link>
+                    </li>
                    {/* <Example /> */}
                 </ul>
                 
