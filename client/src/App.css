@@ -4,6 +4,7 @@
 
 body {
   background-color: rgb(249, 252, 253);
+ 
   
 } 
 .App-logo {
@@ -72,17 +73,18 @@ body {
   min-height: 212px;
 }
 
-path {
+/* path {
   pointer-events: all;
-}
-path:hover {
+} */
+/* path:hover {
   opacity: 0.50;
   cursor: pointer;
-}
+} */
 
 .us-state-map {
-  height: 500px;
+  height: 100%;
   width: 100%;
+  
 }
 
 .card-state {

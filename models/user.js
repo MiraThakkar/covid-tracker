@@ -27,11 +27,7 @@ const UserSchema = new Schema({
     required: "Password is Required",
     validate: [({ length }) => length >= 8, "Password should be longer."]
   },
-
-  // userCreated: {
-  //   type: Date,
-  //   default: Date.now
-  // }
+  
 });
 
 const User = mongoose.model("User", UserSchema);
