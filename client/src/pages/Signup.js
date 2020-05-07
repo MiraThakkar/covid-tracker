@@ -49,7 +49,7 @@ export default class SignUp extends Component {
             marginRight: "30%",
             background: "#2196f3",
             marginTop: "5%",
-        marginBottom: "5%"
+            marginBottom: "5%"
           };
         
         return (
@@ -91,6 +91,7 @@ export default class SignUp extends Component {
                         value={this.state.password}
                         name="password"
                          />
+                         <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button>
                     </div>
 
                     {/* <button onSubmit={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button> */}
@@ -98,7 +99,7 @@ export default class SignUp extends Component {
                         <Link to="/Login"> Already registered?</Link>
                     </p>
                 </div>
-                <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button>
+                {/* <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button> */}
             </div>
         );
     }
