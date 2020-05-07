@@ -62,9 +62,11 @@ function Home() {
             </Col>
             <Col size ="md-10">
               <Navbar />
-              <Table
-              columns= {columns} data= {data}>
-              </Table>
+              <div className= "container col-lg-10" style= {{padding: "20px 20px"}}> 
+                <Table
+                columns= {columns} data= {data}>
+                </Table>
+              </div>
             </Col>
           </Row>
         </Container>

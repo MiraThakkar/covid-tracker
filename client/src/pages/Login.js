@@ -1,7 +1,39 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-function Login ()  {
+export default class Login extends Component {
+
+    state = {
+        email: "",
+        password: ""
+    };
+
+    handleInputChange = event => {
+        const name = event.target.name;
+        const value = event.target.value;
+        this.setState({
+          [name]: value
+        });
+      };
+
+      handleFormSubmit = event => {
+        event.preventDefault();
+        console.log("Senting post request")
+        return axios.post('/api/users/submit', {
+            email: this.state.email,
+            password: this.state.password
+        })
+          .then(function (response) {
+            window.location.replace("/home");
+            console.log(response);
+          })
+          .catch(function (error) {
+            console.log(error);
+          })
+        
+      };
+    render() {
     const mystyle = {
         color: "white",
         backgroundColor: "DodgerBlue",
@@ -48,5 +80,5 @@ function Login ()  {
         </div>
         );
     }
+}
 
-export default Login;

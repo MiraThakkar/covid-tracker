@@ -4,11 +4,12 @@ import "./style.css";
 
 function SearchForm(props) {
   return (
-    <form>
+    <div>
       <div className="form-group"> 
-        <span onClick={props.handleFormSubmit} className="searchBtn">
-          <i class="fa fa-search" />
-        </span>
+         
+          <span onClick={props.handleFormSubmit} className="searchBtn">
+                <i class="fa fa-search" />
+          </span> 
         <input
           onChange={props.handleInputChange}
           value={props.search}
@@ -18,11 +19,8 @@ function SearchForm(props) {
           placeholder="Search for a country"
           id="search"
         />
-        
-        
-        
       </div>
-    </form>
+    </div>
   );
 }
 
