@@ -30,23 +30,27 @@ function Dashboard() {
 
 useEffect(() => { 
   const runEffect = async () => {
-
-  
    var country = "usa";
-   //* For Donut chart input
-    API.search(country).then(res => {
-      setCases(res.data.response[0].cases);
-     setDeath(res.data.response[0].deaths);
-   })
-  
-   //* for 7 Day trend input   
+   await getStats(country);
+};
+runEffect();  
+},[]);
+
+async function getStats(country) {
+  //* For Donut chart input
+  API.search(country).then(res => {
+    setCases(res.data.response[0].cases);
+    setDeath(res.data.response[0].deaths);
+  })
+
+  //* for 7 Day trend input   
   var statArray = [];
   var recoveredArray = [];
   var deathArray = [];
-  
+
   for(var i=6; i>=0; i--) {
     var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-    const apiData = await API.searchStats(date, "india");
+    const apiData = await API.searchStats(date, country);
     const result =  apiData.data.response[0].cases;
     const deathResult = apiData.data.response[0].deaths;      
     statArray.push(result.new);
@@ -56,30 +60,9 @@ useEffect(() => {
   }  
   setStats(statArray);  
   setDeathStats(deathArray);
-  setRecoveryStats(recoveredArray);        
-};
-runEffect();  
-},[setStats, setDeathStats, setRecoveryStats]);
+  setRecoveryStats(recoveredArray);       
 
-  // function getStats(value) {
-  //   console.log("inside getStats");
-  //   var statArray = []
-  //   // var query = value;
-  //   var i;
-  //   if(value) {
-  //     for(i=6; i>=0; i--) {
-  //       var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-  //       API.searchStats(date, value).then(res => {
-  //       const result =  res.data.response[0].cases; //new    
-  //       statArray.push(result.new);
-  //       })
-  //        setStats(statArray);
-  //     } 
-  //   } 
-  //   // else {
-  //   //     setStats(stats);
-  //   // }      
-  // };
+}
 
   //Handles updating search component state when the user types/selects the country input field
   function handleInputChange (event) {
@@ -90,77 +73,30 @@ runEffect();
   
     
 
- async function handleFormSubmit(event) {
-    
+ function handleFormSubmit(event) {
+    console.log(event);
     event.preventDefault();
-    if(search){
-     await API.search(search)
-      .then(res => {
-        setCases(res.data.response[0].cases);
-        setDeath(res.data.response[0].deaths); 
-        //
-        var statArray = []
-        // var query = value;
-        var i;       
-        for(i=6; i>=0; i--) {
-          var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-          API.searchStats(date, search).then(res => {
-          const result =  res.data.response[0].cases; //new    
-          statArray.push(result.new);
-          })
-          setStats(statArray);
-        }  
-        //        
-      })
-      .catch(err => console.log(err))
+    console.log(search);
+    if (search) {
+      getStats(search);
+      console.log("Searching by search");
     } else {
-      setCases(cases);
-  
-    }
+      getStats("usa");
+      console.log("searching by usa by default");
+    } 
+
+
   };
 
-
+  var minRecovered, maxRecovered;
   
-
-  //  async function getStats(value) {
-  //   console.log("inside getStats");
-  //   var statArray = [];
-  //   var recoveredArray = [];
-  //   var deathArray = []
-  //   // var query = value;
-  //   var i;
-  //   if(value) {
-  //     for(i=7; i>0; i--) {
-  //       var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-  //       API.searchStats(date, value).then(res => {
-  //       const result =  res.data.response[0].cases; //new  
-  //       const deathResult = res.data.response[0].deaths;    
-  //       statArray.push(result.new);
-  //       recoveredArray.push(result.recovered);
-  //       deathArray.push(deathResult.total)
-  //       })
-  //       await setStats(statArray);
-  //       await setDeathStats(deathArray);
-  //       await setRecoveryStats(recoveredArray);
-  //     }
-  //   } 
-  //   else {
-  //       setStats(stats);
-  //       setDeathStats(deathStats);
-  //       setRecoveryStats(recoveryStats);
-  //   }      
-  // };
-
-  
-  
-
   const areaData = {
     labels: ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"],
     datasets: [{
         label: 'Death',
         data: deathStats,
         backgroundColor: '#transparent',
-        borderColor: '#0c83e2',
+        borderColor: 'red',
         // borderWidth: 1,
         // fill: true,
         datasetKeyProvider: "key1"
@@ -187,9 +123,9 @@ runEffect();
         },
         ticks: {
           beginAtZero: true,
-          min: 0,
-          max: 250000,
-          stepSize: 25000
+          min: 0, //min
+          max: 250000, //max variable
+          stepSize: 25000 // (max - min)/10
         }
       }],
       xAxes: [{
@@ -494,15 +430,15 @@ const amountDueBarOptions = {
                   <div className="card">
                     <div className="card-body"  style= {{backgroundColor: "#c4d3f2"}}>
                       <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="card-title mb-0"></h2>
+                        <h2 className="card-title mb-0"> </h2>
                         <div className="wrapper d-flex">
-                          <div className="d-flex align-items-center mr-3">
+                          <div className="d-flex align-items-center mr-3" >
                             <span className="dot-indicator bg-success"></span>
-                            <p className="mb-0 ml-2 text-muted">Death</p>
+                            <p className="mb-0 ml-2" style= {{color: 'red'}}>Death</p>
                           </div>
                           <div className="d-flex align-items-center">
                             <span className="dot-indicator bg-primary"></span>
-                            <p className="mb-0 ml-2 text-muted">Recovered</p>
+                            <p className="mb-0 ml-2" style= {{color: "#15b67d"}}>Recovered</p>
                           </div>
                         </div>
                       </div>
