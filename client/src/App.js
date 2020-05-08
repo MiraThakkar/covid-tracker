@@ -8,6 +8,7 @@ import SignUp from "./pages/Signup";
 import ResetPassword from "./pages/ResetPassword";
 import usaForm from "./pages/Usa";
 import Symptoms from "./pages/Symptoms";
+import Profile from "./pages/Profile";
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
                 <Route exact path="/" component={Dashboard} />
                 <Route exact path="/dashboard" component={Dashboard} />
                 <Route exact path="/home" component={Home} />
+                <Route exact path="/profile" component={Profile} />
                 <Route exact path="/usaForm" component={usaForm} />
                 <Route exact path="/symptoms" component={Symptoms} />
                 <Route exact path="/Login" component={Login} />
