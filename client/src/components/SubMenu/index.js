@@ -9,6 +9,41 @@ function Sidebar() {
 
 
     return(
+// {/* <div className="container center">
+//      <!-- Navigation --></div>
+//     <nav id="slide-menu">
+//       <ul>
+//         <li className="timeline">
+//           <i className="fa fa-bar-chart"></i>
+//           <span>Profile</span>
+//         </li>
+//         <li className="events">
+//           <i className="fa fa-flag"></i>
+//           <span>Home</span>
+//         </li>
+//         <li className="calendar">
+//           <i className="fa fa-calendar-o"></i>
+//           <span>Dashboard</span>
+//         </li>
+//         <li className="sep settings">
+//           <i className="fa fa-gear"></i>
+//           <span>Map</span>
+//         </li>
+//         <li className="sep settings">
+//           <i className="fa fa-gear"></i>
+//           <span>Symptoms</span>
+//         </li>
+//         <li className="logout">
+//           <i className="fa fa-close"></i>
+//           <span>Logout</span>
+//         </li>
+//       </ul>
+//     </nav>
+    
+//     <div id="content">
+//       <div className="menu-trigger" data-anijs="if: click, do: $toggleClass menu-active, to: .container">
+//         <i className="fa fa-bars"></i>
+//       </div> */}
 
         <div className="sidebar-wrapper ">
 
@@ -28,11 +63,7 @@ function Sidebar() {
                         
                         {on && <Link to ='/Signup' > Sign Up </Link>}
                      
-                          {/* Mira's changes <button onClick= {toggle}></button> */}
-                       {/* {on && <Link to ='/Login' >Sign In / </Link>}
                        
-                       {on && <Link to ='/Signup' > Sign Up </Link>} */}
-                         {/* <button onClick= {toggle}></button> */}
 
                          <button  onClick= {toggle}
                          type="button" id="sidebarCollapse" className="btn btn-toggle">
@@ -41,7 +72,6 @@ function Sidebar() {
                  )} />
                
 
-                {/* </button> */}
                 </div>
                 <button className = "btn btn-info mt-3"><i className="fas fa-plus"></i>  Add to Favorites
                 </button>
@@ -92,7 +122,7 @@ function Sidebar() {
                         <i className="fas fa-file-medical"></i> Symptoms
                         </Link>
                     </li>
-                   {/* <Example /> */}
+                 
                 </ul>
                 
             </nav>
