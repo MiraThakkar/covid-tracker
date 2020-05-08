@@ -313,7 +313,7 @@ const amountDueBarOptions = {
   
   return (
     //page background color
-    <div className= "page" style= {{backgroundColor: "#577F9F"}} > 
+    <div className= "page"  > 
     {/* style= {{backgroundColor: "#577F9F"}}  */}
       <Container fluid>
         <Row>
@@ -334,7 +334,7 @@ const amountDueBarOptions = {
               <div className="row">
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-cube text-danger icon-lg"></i>
@@ -352,7 +352,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-receipt text-warning icon-lg"></i>
@@ -370,7 +370,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-poll-box text-success icon-lg"></i>
@@ -389,7 +389,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-account-box-multiple text-info icon-lg"></i>
@@ -410,7 +410,7 @@ const amountDueBarOptions = {
               {/* <div className="row"> 
                 <div className="col-md-12 grid-margin">
                   <div className="card">
-                    <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                       <div className="d-flex justify-content-between align-items-center mb-4">
                         <h2 className="card-title mb-0">Tracker</h2>
                         <div className="wrapper d-flex">
@@ -436,7 +436,7 @@ const amountDueBarOptions = {
 
               <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
                 <div className="card">
-                  <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                  <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                     <div className="row">
                       <div className="col-md-5 d-flex align-items-center">
                         <Doughnut data={usersDoughnutChartData} options={usersDoughnutChartOptions} width= {180} />
@@ -470,7 +470,7 @@ const amountDueBarOptions = {
               </div>
               <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
                 <div className="card">
-                  <div className="card-body" style= {{backgroundColor: "#c4d3f2"}}>
+                  <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
                     <div className="row">
                       <div className="col-md-7">
                         <h4 className="card-title font-weight-medium mb-3"> 7 Days Trend </h4>
@@ -489,6 +489,7 @@ const amountDueBarOptions = {
               </div>
             
             </div>
+//
               <div className="row">
                 <div className="col-md-12 grid-margin">
                   <div className="card">
@@ -513,6 +514,7 @@ const amountDueBarOptions = {
                   </div>
                 </div>
               </div> 
+//
             </div>
           </Col>
         </Row>
