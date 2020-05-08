@@ -1,9 +1,9 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 body {
-  background-color:#c7e4ff;
+  background-color:#eff5f8;
  
   
 } 
@@ -63,23 +63,25 @@ body {
 
 .card {
   width:100%;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Times New Roman', Times, serif;
-  /* color: #db1515; */
-  /* background-color: transparent; */
+  background-color: "#ffffff";
   margin-top: 20px;
   margin-bottom: 10px;
-  /*   */
   min-height: 228px;
+  border-radius: 0.5rem;
+  box-shadow: gray 1px;
+  
+
 }
 
-/* path {
+path {
   pointer-events: all;
-} */
-/* path:hover {
+} 
+ path:hover {
   opacity: 0.50;
   cursor: pointer;
-} */
+}
 
 .us-state-map {
   height: 100%;
@@ -93,4 +95,16 @@ body {
   color: #db1515;
   background-color: transparent;
 
+}
+.form-control {
+  display: inline;
+ padding-left: 30px;
+}
+
+/* .health-card .card-body {
+  text-align: left;
+} */
+
+.forms-sample {
+  text-align: left;
 }
