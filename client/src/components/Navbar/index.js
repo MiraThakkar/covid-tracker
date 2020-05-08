@@ -5,6 +5,7 @@ import "./style.css";
 
 
 
+
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 // import Login from "../../pages/Login";
@@ -12,18 +13,26 @@ import "./style.css";
 
 
 function Navbar() {
+  const [user, setUser] = useState({});
 
   useEffect(() => {
     getUserData()
   }, []);
 
 function getUserData () {
-  axios.get("/api/users/user_data").then(res => {
-      console.log(res);
+  axios.get("/api/users/user_data",
+    {
+      email: "mthakkar84@gmail.com",
+    } 
+  ).then(res => {
+      setUser(res.data);
   }).catch(err => {
     console.log(err);
   })
 }
+
+console.log(user);
+
 
 //  function  toggleOffcanvas() {
 //     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
@@ -43,7 +52,7 @@ function getUserData () {
                 <li className="nav-item  nav-profile border-0">
               <Dropdown alignRight>
                 <Dropdown.Toggle className="nav-link count-indicator bg-transparent">
-                  <span className="profile-text"> <i className = "fas fa-user" ></i>  User </span>
+                  <span className="profile-text"> <i className = "fas fa-user" ></i>  {user.firstName }</span>
                   {/* <img className="img-xs rounded-circle" src={require("../../assets/images/faces/face8.jpg")} alt="Profile" /> */}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="preview-list navbar-dropdown pb-3">
