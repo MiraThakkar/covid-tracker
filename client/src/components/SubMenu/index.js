@@ -7,15 +7,16 @@ import CoronaVirus from "../../assets/images/Coronavirus.png";
 
 function Sidebar() {
 
+
     return(
 
-        <div className="sidebar-wrapper">
+        <div className="sidebar-wrapper ">
 
             <nav id="sidebar">
                 <div className="sidebar-header">
 
                 <Link className="navbar-brand" Link to ='/home'>
-                    <img className= "image" src={CoronaVirus}/>
+                    <img className= "image" src={CoronaVirus} alt =  ""/>
                     ViD-APP</Link>
 
                 
