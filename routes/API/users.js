@@ -6,7 +6,7 @@ const userController = require("../../controllers/userController");
 // Matches with "/api/users/login"
 router.route("/login").post(passport.authenticate("local"), function(req, res) {
   console.log("Hiting login route")
-  console.log(res)
+  // console.log(res)
   res.json()
 });
 
@@ -19,5 +19,7 @@ router.route("/submit")
 router
   .route("/:id")
   .put(userController.update);
+  
+// Matches with "/api/users/user_data"
 
 module.exports = router;

@@ -17,13 +17,14 @@
     border-top: none;
     border-left: none;
     border-right:none;
-    max-width: 40%;
     height: auto;
+    width: 100%;
+    padding-bottom: 10px;
 }
 
 .form-control {
      display: inline;
-    padding-left: 30px;
+    /* padding-left: 30px; */
      
 
 

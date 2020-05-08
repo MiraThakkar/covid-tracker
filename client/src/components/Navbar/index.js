@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
+import axios from "axios"
 import { Dropdown } from 'react-bootstrap';
 import "./style.css";
 
@@ -11,6 +12,18 @@ import "./style.css";
 
 
 function Navbar() {
+
+  useEffect(() => {
+    getUserData()
+  }, []);
+
+function getUserData () {
+  axios.get("/api/users/user_data").then(res => {
+      console.log(res);
+  }).catch(err => {
+    console.log(err);
+  })
+}
 
 //  function  toggleOffcanvas() {
 //     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
@@ -34,19 +47,6 @@ function Navbar() {
                   {/* <img className="img-xs rounded-circle" src={require("../../assets/images/faces/face8.jpg")} alt="Profile" /> */}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="preview-list navbar-dropdown pb-3">
-                  {/* <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center border-bottom" href="!#" onClick={evt =>evt.preventDefault()}>
-                    <div className="d-flex">
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center">
-                        <i className="mdi mdi-bookmark-plus-outline mr-0"></i>
-                      </div>
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center border-left border-right">
-                        <i className="mdi mdi-account-outline mr-0"></i>
-                      </div>
-                      <div className="py-3 px-4 d-flex align-items-center justify-content-center">
-                        <i className="mdi mdi-alarm-check mr-0"></i>
-                      </div>
-                    </div>
-                  </Dropdown.Item> */}
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0 mt-2" onClick={evt =>evt.preventDefault()}>
                     Profile
                   </Dropdown.Item>

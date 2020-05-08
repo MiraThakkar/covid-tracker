@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 body {
   background-color:#eff5f8;
@@ -65,7 +65,7 @@ body {
   width:100%;
   font-size: 14px;
   font-family: 'Times New Roman', Times, serif;
-  background-color: #fffffff1;
+  background-color: "#ffffff";
   margin-top: 20px;
   margin-bottom: 10px;
   min-height: 228px;
@@ -99,4 +99,12 @@ path {
 .form-control {
   display: inline;
  padding-left: 30px;
+}
+
+/* .health-card .card-body {
+  text-align: left;
+} */
+
+.forms-sample {
+  text-align: left;
 }
