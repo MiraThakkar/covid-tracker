@@ -72,7 +72,7 @@ function Symptoms () {
                     <Col size ="md-10">
                         <Navbar />
 
-                        <div>
+                        <div className= "container col-lg-10" style= {{padding: "20px 20px"}}>
                             <h1 style ={style2}> <i className="fas fa-user-md"></i> Watch for symptoms</h1>
                             <p style ={style3}>
                                 <h4>Usually sypmtoms will appear 2-14 days after exposure to COVID-19.</h4>

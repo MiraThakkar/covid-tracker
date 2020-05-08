@@ -22,7 +22,7 @@ export default class Login extends Component {
       handleFormSubmit = event => {
         event.preventDefault();
         console.log("Senting post request")
-        return axios.post('/api/users/submit', {
+        return axios.post('/api/users/login', {
             email: this.state.email,
             password: this.state.password
         })
