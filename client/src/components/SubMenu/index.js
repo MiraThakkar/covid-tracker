@@ -76,11 +76,11 @@ function Sidebar() {
                
 
                  </div>
-                 {/* <button className = "btn btn-info mt-3" onClick={("/profile")}><i className="fas fa-user"></i>  Profile
+                 <button className = "btn btn-info mt-3" onClick={("/profile")}><i className="fas fa-user"></i>  Profile
                     <Link
                              to="/profile" >
                     </Link>
-                 </button> */}
+                 </button>
                  <ul className="navbar-nav">
                     
                      <li className = "nav-item">
