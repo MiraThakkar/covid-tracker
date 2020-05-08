@@ -46,7 +46,7 @@ body {
 /* Card Style */
 
 .card-body h3 {
-    width: auto;
+    width: 100%;
     padding: 0;
     background-color: transparent;
     border: none;

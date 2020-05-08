@@ -4,7 +4,7 @@
     margin:auto;
     cursor: pointer;
     bottom: 10px;
-    top:40px;
+    top:30px;
     padding-left: 10px;
     margin-right: 20px;
     
@@ -13,11 +13,11 @@
 
 .form-group {
     
-    margin: 10px; 
+    margin: auto;
     border-top: none;
     border-left: none;
     border-right:none;
-    max-width: 100%;
+    max-width: 30%;
     height: auto;
 }
 

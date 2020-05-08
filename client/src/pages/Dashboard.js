@@ -46,7 +46,7 @@ useEffect(() => {
   
   for(var i=6; i>=0; i--) {
     var date = Moment(new Date()).subtract(i, "days").format("YYYY-MM-DD");
-    const apiData = await API.searchStats(date, "usa");
+    const apiData = await API.searchStats(date, "india");
     const result =  apiData.data.response[0].cases;
     const deathResult = apiData.data.response[0].deaths;      
     statArray.push(result.new);
