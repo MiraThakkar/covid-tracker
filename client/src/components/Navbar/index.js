@@ -34,7 +34,7 @@ function Navbar() {
                   {/* <img className="img-xs rounded-circle" src={require("../../assets/images/faces/face8.jpg")} alt="Profile" /> */}
                 </Dropdown.Toggle>
                 <Dropdown.Menu className="preview-list navbar-dropdown pb-3">
-                  <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center border-bottom" href="!#" onClick={evt =>evt.preventDefault()}>
+                  {/* <Dropdown.Item className="dropdown-item p-0 preview-item d-flex align-items-center border-bottom" href="!#" onClick={evt =>evt.preventDefault()}>
                     <div className="d-flex">
                       <div className="py-3 px-4 d-flex align-items-center justify-content-center">
                         <i className="mdi mdi-bookmark-plus-outline mr-0"></i>
@@ -46,7 +46,7 @@ function Navbar() {
                         <i className="mdi mdi-alarm-check mr-0"></i>
                       </div>
                     </div>
-                  </Dropdown.Item>
+                  </Dropdown.Item> */}
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0 mt-2" onClick={evt =>evt.preventDefault()}>
                     Profile
                   </Dropdown.Item>

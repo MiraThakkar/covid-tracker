@@ -1,9 +1,24 @@
-import React from "react";
+import React, { Component } from 'react';
 import Navbar from "../components/Navbar";
 import SubMenu from "../components/SubMenu";
+import { Form } from 'react-bootstrap';
+import DatePicker from "react-datepicker";
 import { Col, Row, Container } from "../components/Grid";
 
-function Profile (){
+
+
+export default class Profile extends Component {
+// state = {
+//     startDate: new Date()
+//   };
+ 
+//   handleChange = date => {
+//     this.setState({
+//       startDate: date
+//     });
+//   };
+
+  render (){
     return(
         <div>
             <Container fluid>
@@ -13,12 +28,13 @@ function Profile (){
                     </Col>
 
                     <Col size ="md-10 lg-10">
-                        <Navbar />    
+                        <Navbar />   
+                    
                     </Col> 
                 </Row>
             </Container>
         </div>
     )
-}
+    }
 
-export default Profile;
+}

@@ -11,8 +11,8 @@ function Home() {
   const columns = useMemo(
     () => [
       {
-        // first group - TV Show
-        Header: "World COVID-19 Stats",
+        // first group
+        Header: "Global COVID-19 Stats",
         // First group columns
         columns: [
           {

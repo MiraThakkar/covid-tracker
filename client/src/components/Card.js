@@ -15,8 +15,7 @@ function Card (prop){
           })
         
       };
-        
-
+    
 
     const styles = { card: {width: "16rem"}}
     return (
