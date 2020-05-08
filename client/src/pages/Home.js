@@ -12,7 +12,7 @@ function Home() {
     () => [
       {
         // first group - TV Show
-        Header: "Global Data",
+        Header: "World COVID-19 Stats",
         // First group columns
         columns: [
           {

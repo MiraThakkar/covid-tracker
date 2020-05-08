@@ -30,8 +30,8 @@ export default class SignUp extends Component {
             password: this.state.password
         })
           .then(function (response) {
-            window.location.replace("/home");
             console.log(response);
+            window.location.replace("/login");
           })
           .catch(function (error) {
             console.log(error);
@@ -95,13 +95,12 @@ export default class SignUp extends Component {
                          />
                          <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button>
                     </div>
-
-                    {/* <button onSubmit={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button> */}
                     <p className="forgot-password text-right">
                         <Link to="/Login"> Already registered?</Link>
                     </p>
                 </div>
-                {/* <button onClick={this.handleFormSubmit} id="submit" type="submit" className="btn btn-primary btn-block">Sign Up</button> */}
+                <button onClick={this.handleFormSubmit} id="submit" type="submit" 
+                className="btn btn-primary btn-block">Sign Up</button>
             </div>
         );
     }
