@@ -27,12 +27,9 @@ state = {
                     <Col size="md-2 lg-2">
                         <SubMenu />
                     </Col>
-
                     <Col size ="md-10 lg-10">
                         <Navbar /> 
-
-                        <div className= "container col-lg-10" style= {{padding: "10 px 10px"}}> 
-                             
+                        <div className= "container col-lg-10" style= {{padding: "10 px 10px"}}>
                                 <div className="col-12 grid-margin stretch-card">
                                     <div className="card">
                                     <div className="card-body">
@@ -47,10 +44,6 @@ state = {
                                                 <Form.Control type="email" className="form-control" id="exampleInputEmail3" placeholder="Email" />
                                             </Form.Group>
                                             <Form.Group>
-                                                <label htmlFor="exampleInputPassword4">Password</label>
-                                                <Form.Control type="password" className="form-control" id="exampleInputPassword4" placeholder="Password" />
-                                                </Form.Group>
-                                                <Form.Group>
                                                 <label htmlFor="exampleSelectGender">Gender</label>
                                                 <select className="form-control" id="exampleSelectGender">
                                                 <option>Male</option>
@@ -80,7 +73,7 @@ state = {
                                     </div>
                                     </div>
                                     <div className = "row">
-                                    <div className="col-md-6 grid-margin stretch-card">
+                                    <div className="col-md-12 grid-margin stretch-card">
                                         <div className="card">
                                         <div className="card-body">
                                             <h4 className="card-title">Health</h4>
@@ -113,7 +106,7 @@ state = {
                                                 <p className="card-description">Select all that apply</p>
                                                 <form>
                                                 <div className="row">
-                                                    {/* <div className="col-md-12"> */}
+                                                    <div className="col-md-12">
                                                     <Form.Group>
                                                         <div className="form-check">
                                                         <label className="form-check-label">
@@ -148,6 +141,61 @@ state = {
                                                             <input type="checkbox" className="form-check-input"/>
                                                             <i className="input-helper"></i>
                                                             Body aches/fatigue
+                                                        </label>
+                                                        </div>
+                                                      
+                                                        
+                                                    </Form.Group>
+                                                    </div>
+                                                    </div>
+                                                {/* </div> */}
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div className="col-md-6 grid-margin stretch-card">
+                                        <div className="card">
+                                            <div className="card-body">
+                                                <h4 className="card-title">Chronic Conditions</h4>
+                                                <p className="card-description">Select all that apply</p>
+                                                <form>
+                                                <div className="row">
+                                                    {/* <div className="col-md-12"> */}
+                                                    <Form.Group>
+                                                        <div className="form-check">
+                                                        <label className="form-check-label">
+                                                            <input type="checkbox" className="form-check-input"/>
+                                                            <i className="input-helper"></i>
+                                                            DM
+                                                        </label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                        <label className="form-check-label">
+                                                            <input type="checkbox" className="form-check-input"/>
+                                                            <i className="input-helper"></i>
+                                                            HTN
+                                                        </label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                        <label className="form-check-label">
+                                                            <input type="checkbox" className="form-check-input"/>
+                                                            <i className="input-helper"></i>
+                                                            COPD
+                                                        </label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                        <label className="form-check-label">
+                                                            <input type="checkbox" className="form-check-input"/>
+                                                            <i className="input-helper"></i>
+                                                            CHF
+                                                        </label>
+                                                        </div>
+                                                        <div className="form-check">
+                                                        <label className="form-check-label">
+                                                            <input type="checkbox" className="form-check-input"/>
+                                                            <i className="input-helper"></i>
+                                                            Asthma
                                                         </label>
                                                         </div>
                                                       

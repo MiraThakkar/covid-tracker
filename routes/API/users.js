@@ -5,10 +5,11 @@ const userController = require("../../controllers/userController");
 
 // Matches with "/api/users/login"
 router.route("/login").post(passport.authenticate("local"), function(req, res) {
-  console.log("Hiting login route")
+  console.log("Hitting login route")
   // console.log(res)
   res.json()
 });
+
 
 console.log("Into users route")
 router.route("/submit")
@@ -20,6 +21,9 @@ router
   .route("/:id")
   .put(userController.update);
   
-// Matches with "/api/users/user_data"
 
+  // Matches with "/api/users/user_data"
+router
+  .route("/user_data")
+  .get(userController.findOne)
 module.exports = router;
