@@ -51,12 +51,12 @@ export default class Login extends Component {
         marginBottom: "5%"
       };
 
-    const image= {
-        backgroundImage:`url(${nature})`,
-        height: "100%" 
-    }
+    // const image= {
+    //     backgroundImage:`url(${nature})`,
+    //     height: "100%" 
+    // }
         return (
-            <div style ={image}>
+            <div >
                 <Container >
                 <form style= {mystyle}>
                     <h4>Sign In</h4>
