@@ -15,7 +15,7 @@ class App extends Component {
         fill: "navy",
         clickHandler: (event) => console.log('Custom handler for NJ', event.target.dataset)
       },
-      "NY": {
+      "CT": {
         fill: "#CC0000"
       }
     };

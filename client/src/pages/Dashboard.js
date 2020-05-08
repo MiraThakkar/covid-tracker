@@ -9,7 +9,7 @@ import SubMenu from "../components/SubMenu";
 import { Col, Row, Container } from "../components/Grid";
 import Moment from "moment";
 import _ from "lodash";
-import { Query } from "mongoose";
+// import { Query } from "mongoose";
 
 const sendQuery = query => console.log(`Querying for ${query}`);
 
@@ -88,8 +88,8 @@ async function getStats(country) {
 
   };
 
-  var minRecovered, maxRecovered;
-  
+  // var minRecovered, maxRecovered;
+
   const areaData = {
     labels: ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"],
     datasets: [{
