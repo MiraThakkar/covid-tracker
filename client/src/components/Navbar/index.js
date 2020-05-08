@@ -12,9 +12,9 @@ import "./style.css";
 
 function Navbar() {
 
- function  toggleOffcanvas() {
-    document.querySelector('.sidebar-offcanvas').classList.toggle('active');
-  }
+//  function  toggleOffcanvas() {
+//     document.querySelector('.sidebar-offcanvas').classList.toggle('active');
+//   }
     return (
     
       <div className= "navbar navbar-expand-lg navbar-light bg-ligh">
@@ -48,7 +48,7 @@ function Navbar() {
                     </div>
                   </Dropdown.Item>
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0 mt-2" onClick={evt =>evt.preventDefault()}>
-                    Manage Accounts
+                    Profile
                   </Dropdown.Item>
                   <Dropdown.Item className="dropdown-item preview-item d-flex align-items-center border-0" onClick={evt =>evt.preventDefault()}>
                    Change Password 
