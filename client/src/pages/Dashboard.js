@@ -346,7 +346,7 @@ const amountDueBarOptions = {
                           </div>
                         </div>
                       </div>
-                      <p className="text-muted mt-3 mb-0"><i className="fas fa-users fa-3x" aria-hidden="true"></i> 12% growth </p>
+                      <p className="text-muted mt-3 mb-0"><i style={{color: "#d4d4d4"}} className="fas fa-users fa-5x"  aria-hidden="true"></i> 12% growth </p>
                     </div>
                   </div>
                 </div>
@@ -364,7 +364,7 @@ const amountDueBarOptions = {
                           </div>
                         </div>
                       </div>
-                      <p className="text-muted mt-3 mb-0"> <i className="fas fa-chart-line fa-3x" aria-hidden="true"></i>12% growth</p>
+                      <p className="text-muted mt-3 mb-0"> <i style={{color: "#d4d4d4"}} className="fas fa-chart-line fa-5x" aria-hidden="true"></i>12% growth</p>
                     </div>
                   </div>
                 </div>
@@ -383,7 +383,7 @@ const amountDueBarOptions = {
                         </div>
                       </div>
                       <p className="text-muted mt-3 mb-0">
-                        <i className="fas fa-file-medical-alt fa-3x" aria-hidden="true"></i> {parseInt(100*cases.recovered/cases.total)}% Recovered</p>
+                        <i style={{color: "#d4d4d4"}} className="fas fa-file-medical-alt fa-5x" aria-hidden="true"></i> {parseInt(100*cases.recovered/cases.total)}% Recovered</p>
                     </div>
                   </div>
                 </div>
@@ -402,7 +402,7 @@ const amountDueBarOptions = {
                         </div>
                       </div>
                       <p className="text-muted mt-3 mb-0">
-                        <i className="fas fa-viruses fa-3x" size = "36px" aria-hidden="true"></i> </p>
+                        <i style={{color: "#d4d4d4"}} className="fas fa-viruses fa-5x" size = "36px" aria-hidden="true"></i> </p>
                     </div>
                   </div>
                 </div>
@@ -489,7 +489,7 @@ const amountDueBarOptions = {
               </div>
             
             </div>
-//
+
               <div className="row">
                 <div className="col-md-12 grid-margin">
                   <div className="card">
@@ -514,7 +514,7 @@ const amountDueBarOptions = {
                   </div>
                 </div>
               </div> 
-//
+
             </div>
           </Col>
         </Row>
