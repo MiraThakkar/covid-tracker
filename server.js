@@ -26,7 +26,7 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 
 // // Connect to the Mongo DB
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/trackerDB");
-mongoose.connect(process.env.MONGODB_URI || "mongodb://MiraT:ShriHari@2020@ds257097.mlab.com:57097/heroku_5rrr5219");
+mongoose.connect(process.env.MONGODB_URI || "mongodb://healthadm:admin123@ds257097.mlab.com:57097/heroku_5rrr5219");
 
 // Start the API server
 app.listen(PORT, () => {
