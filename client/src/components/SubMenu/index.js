@@ -3,51 +3,13 @@ import { Link } from "react-router-dom";
 import "./style.css"; 
 import ToggleMenu from "../ToggleMenu";
 import CoronaVirus from "../../assets/images/Coronavirus.png";
-//import Example from "../../components/Collapse"
+
 
 function Sidebar() {
 
 
     return(
         
-            // <div className="container center">
-                
-            //     <nav id="slide-menu">
-            //         <ul>
-            //             <li className="timeline">
-            //             <i className="fa fa-bar-chart"></i>
-            //             <span>Profile</span>
-            //             </li>
-            //             <li className="events">
-            //             <i className="fa fa-flag"></i>
-            //             <span>Home</span>
-            //             </li>
-            //             <li className="calendar">
-            //             <i className="fa fa-calendar-o"></i>
-            //             <span>Dashboard</span>
-            //             </li>
-            //             <li className="sep settings">
-            //             <i className="fa fa-gear"></i>
-            //             <span>Map</span>
-            //             </li>
-            //             <li className="sep settings">
-            //             <i className="fa fa-gear"></i>
-            //             <span>Symptoms</span>
-            //             </li>
-            //             <li className="logout">
-            //             <i className="fa fa-close"></i>
-            //             <span>Logout</span>
-            //             </li>
-            //         </ul>
-            //     </nav>
-                
-            //     <div id="content">
-            //         <div className="menu-trigger" onClick= {ToggleMenu}>
-            //             <i className="fa fa-bars"></i>
-            //         </div> 
-            //     </div>
-            // </div>
-
          <div className="sidebar-wrapper ">
 
             <nav id="sidebar">
@@ -76,7 +38,7 @@ function Sidebar() {
                
 
                  </div>
-                 <button className = "btn btn-info mt-3" onClick={("/profile")}><i className="fas fa-file-medical"></i> My Health
+                 <button className = "btn btn-info mt-3 my-health" onClick={("/profile")}><i className="fas fa-file-medical"></i> My Health
                     <Link
                              to="/profile" className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"} >
                     </Link>
@@ -130,6 +92,19 @@ function Sidebar() {
                          </Link>
                      </li>
                  
+                     <li className="nav-item">
+                         <Link
+                             to="/habits"
+                             className={
+                             window.location.pathname === "/habits" || window.location.pathname === "/habits"
+                             ? "nav-link active"
+                             : "nav-link"
+                             }
+                         >
+                         <i className="fas fa-heartbeat"></i> Healthy Habits
+
+                         </Link>
+                     </li>
                  </ul>
                 
              </nav>
