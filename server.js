@@ -24,9 +24,10 @@ app.use(passport.session());
 app.use(routes);
 app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 
-// // Connect to the Mongo DB
+// // Connect to the Mongo DB some
 //mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/trackerDB");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://foobar@gmail.com:foobar123@ds133428.mlab.com:33428/heroku_px71prjl");
+
 
 // Start the API server
 app.listen(PORT, () => {
