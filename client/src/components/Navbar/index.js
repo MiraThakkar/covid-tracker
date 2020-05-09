@@ -30,7 +30,6 @@ function getUserData () {
     console.log(err);
   })
 }
-
 console.log(user);
 
 

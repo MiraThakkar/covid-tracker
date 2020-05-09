@@ -99,8 +99,7 @@ export default class SignUp extends Component {
                         <Link to="/Login"> Already registered?</Link>
                     </p>
                 </div>
-                <button onClick={this.handleFormSubmit} id="submit" type="submit" 
-                className="btn btn-primary btn-block">Sign Up</button>
+                
             </div>
         );
     }
