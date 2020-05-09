@@ -13,6 +13,15 @@ module.exports = {
       });
   },
 
+  findOne: function(req,res) {
+    db.User
+      .findOne(req.email)
+      .then(dbModel => res.json(dbModel))
+      .catch(err => {
+        res.status(422).json(err)
+      });
+  },
+
   create: function(req, res) {
     const saltSync = bcrypt.genSaltSync();
     const hash = bcrypt.hashSync(req.body.password, saltSync);

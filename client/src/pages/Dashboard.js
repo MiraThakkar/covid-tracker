@@ -259,7 +259,7 @@ const amountDueBarOptions = {
           <Col size ="md-10 lg-10">
             <Navbar />
   
-            <div className= "container col-lg-10" style= {{padding: "20px 20px"}}> 
+            <div className= "container col-lg-10" style= {{padding: "10px 10px"}}> 
 
               <SearchForm
                 search= {search}
@@ -270,7 +270,7 @@ const amountDueBarOptions = {
               <div className="row">
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                    <div className="card-body" >
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-cube text-danger icon-lg"></i>
@@ -288,7 +288,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                    <div className="card-body">
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-receipt text-warning icon-lg"></i>
@@ -306,7 +306,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                    <div className="card-body">
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-poll-box text-success icon-lg"></i>
@@ -325,7 +325,7 @@ const amountDueBarOptions = {
                 </div>
                 <div className="col-xl-3 col-lg-6 col-md-6 col-sm-6 grid-margin stretch-card">
                   <div className="card card-statistics">
-                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                    <div className="card-body">
                       <div className="clearfix">
                         <div className="float-left">
                           <i className="mdi mdi-account-box-multiple text-info icon-lg"></i>
@@ -343,36 +343,11 @@ const amountDueBarOptions = {
                   </div>
                 </div>
               </div>
-              {/* <div className="row"> 
-                <div className="col-md-12 grid-margin">
-                  <div className="card">
-                    <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
-                      <div className="d-flex justify-content-between align-items-center mb-4">
-                        <h2 className="card-title mb-0">Tracker</h2>
-                        <div className="wrapper d-flex">
-                          <div className="d-flex align-items-center mr-3">
-                            <span className="dot-indicator bg-success"></span>
-                            <p className="mb-0 ml-2 text-muted">Death</p>
-                          </div>
-                          <div className="d-flex align-items-center">
-                            <span className="dot-indicator bg-primary"></span>
-                            <p className="mb-0 ml-2 text-muted">Recovered</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="chart-container">
-                        <Line data={areaData} options={areaOptions} height={80} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
-      
-              <div className="row">
 
+              <div className="row">
               <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
                 <div className="card">
-                  <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                  <div className="card-body">
                     <div className="row">
                       <div className="col-md-5 d-flex align-items-center">
                         <Doughnut data={usersDoughnutChartData} options={usersDoughnutChartOptions} width= {180} />
@@ -406,15 +381,16 @@ const amountDueBarOptions = {
               </div>
               <div className="col-sm-6 col-md-6 col-lg-6 grid-margin stretch-card">
                 <div className="card">
-                  <div className="card-body" style= {{backgroundColor: "#e2f0ff"}}>
+                  <div className="card-body">
                     <div className="row">
                       <div className="col-md-7">
-                        <h4 className="card-title font-weight-medium mb-3"> 7 Days Trend </h4>
-                        <h1 className="font-weight-medium mb-0 text-dark">New Cases</h1>
+                        <div></div>
+                        
+                        <h3 className="font-weight-medium mb-0 text-dark"> New Cases</h3>
+                        <p className="card-title font-weight-medium mb-3"> Weekly Trend </p>
                         {/* <p className="text-muted">Place Holder</p>
                         <p className="mb-0">Place Holder</p> */}
                       </div>
-                      
                       <div className="col-md-5 d-flex align-items-end mt-4 mt-md-0">
                       {stats && 
                         <Bar data={amountDueBarData} options={amountDueBarOptions} />    }
@@ -429,7 +405,7 @@ const amountDueBarOptions = {
               <div className="row">
                 <div className="col-md-12 grid-margin">
                   <div className="card">
-                    <div className="card-body"  style= {{backgroundColor: "#c4d3f2"}}>
+                    <div className="card-body">
                       <div className="d-flex justify-content-between align-items-center mb-4">
                         <h2 className="card-title mb-0"> </h2>
                         <div className="wrapper d-flex">

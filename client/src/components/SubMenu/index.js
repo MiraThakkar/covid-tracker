@@ -76,9 +76,9 @@ function Sidebar() {
                
 
                  </div>
-                 <button className = "btn btn-info mt-3" onClick={("/profile")}><i className="fas fa-user"></i>  Profile
+                 <button className = "btn btn-info mt-3" onClick={("/profile")}><i className="fas fa-file-medical"></i> My Health
                     <Link
-                             to="/profile" >
+                             to="/profile" className={window.location.pathname === "/profile" ? "nav-link active" : "nav-link"} >
                     </Link>
                  </button>
                  <ul className="navbar-nav">
@@ -112,7 +112,7 @@ function Sidebar() {
                              : "nav-link"
                              }
                          >
-                         <i className="fas fa-map"></i> Map
+                         <i className="fas fa-map"></i> USA
                          </Link>
                      </li>
                     
@@ -125,7 +125,8 @@ function Sidebar() {
                              : "nav-link"
                              }
                          >
-                         <i className="fas fa-file-medical"></i> Symptoms
+                         <i className="fas fa-info-circle"></i> Information
+
                          </Link>
                      </li>
                  
