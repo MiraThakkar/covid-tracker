@@ -43,9 +43,11 @@ h3 {
    
 }
 
-.btn-info {
-    width: 70%;
-
+.my-health {
+    width: 50%;
+    margin-left: 20px;
+    padding-left: 20px;
+    height: 40px;
 }
 .btn-toggle {
     position: absolute;
@@ -66,3 +68,4 @@ h3 {
 .navbar-brand {
     font-family: cursive;
 }
+

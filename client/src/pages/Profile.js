@@ -79,19 +79,23 @@ state = {
                                             <h4 className="card-title">Health</h4>
                                             <p className="card-description"> Add your health information </p>
                                             <Form.Group>
-                                            <label>Health Info</label>
+                                            <label>Weight</label>
                                             <Form.Control type="text" className="form-control" placeholder="Enter here" aria-label="Username" />
                                             </Form.Group>
                                             <Form.Group>
-                                            <label>Health Info</label>
+                                            <label>Height</label>
                                             <Form.Control type="text" className="form-control-sm" placeholder="Enter here" aria-label="Username" />
                                             </Form.Group>
                                             <Form.Group>
-                                            <label>Health Info</label>
+                                            <label>Blood Pressure</label>
                                             <Form.Control type="text" className="form-control-sm" placeholder="Enter here" aria-label="Username" />
                                             </Form.Group>
                                             <Form.Group>
-                                            <label>Health input</label>
+                                            <label>Temperature</label>
+                                            <Form.Control type="text" className="form-control-sm" placeholder="Enter here" aria-label="Username" />
+                                            </Form.Group>
+                                            <Form.Group>
+                                            <label>Heart Rate</label>
                                             <Form.Control type="text" className="form-control-sm" placeholder="Enter here" aria-label="Username" />
                                             </Form.Group>
         
