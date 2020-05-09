@@ -94,6 +94,9 @@ export default class Login extends Component {
                     <p className="forgot-password text-right">
                          <Link to="/ResetPassword"> Forgot Password?</Link>
                     </p>
+                    <p className="not-registered text-left">
+                         <Link to="/Signup"> Not Registered?</Link>
+                    </p>
                 </form>
                 </Container>
         </div>
