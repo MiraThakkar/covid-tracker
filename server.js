@@ -28,6 +28,10 @@ app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true 
 // mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/trackerDB");
 mongoose.connect(process.env.MONGODB_URI || "mongodb://healthadm:admin123@ds257097.mlab.com:57097/heroku_5rrr5219");
 
+app.get("*", function (req, res) {
+  res.sendFile(path.join(__dirname, "./client/build/index.html"));
+});
+
 // Start the API server
 app.listen(PORT, () => {
   //console.log(`App running on port ${PORT}!`);
