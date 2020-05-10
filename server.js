@@ -2,6 +2,7 @@ const express = require("express");
 //const logger = require("morgan");
 var session = require("express-session");
 const mongoose = require("mongoose");
+const path = require("path");
 
 const PORT = process.env.PORT || 3001;
 
